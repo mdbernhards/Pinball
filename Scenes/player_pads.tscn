@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://brhkrec6uo1lw"]
+
+[ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
+[ext_resource type="PackedScene" uid="uid://drse61ee2nkhd" path="res://Scenes/player_pad.tscn" id="2_bfe1v"]
+[ext_resource type="PackedScene" uid="uid://b7mbijirdtlx1" path="res://Scenes/tallblock.tscn" id="3_f8w25"]
+[ext_resource type="PackedScene" uid="uid://cf8q3qjwi6xvn" path="res://Scenes/rainbow_ball.tscn" id="4_hak1d"]
+[ext_resource type="PackedScene" uid="uid://dh2j8gy1nr35p" path="res://Scenes/player_ball.tscn" id="5_811pk"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_phpw6")
+
+[node name="PlayerPad1" parent="." instance=ExtResource("2_bfe1v")]
+position = Vector2(322, 544)
+scale = Vector2(0.4, 0.4)
+
+[node name="PlayerPad2" parent="." instance=ExtResource("2_bfe1v")]
+position = Vector2(743, 542)
+scale = Vector2(-0.4, 0.4)
+
+[node name="PlayerBall" parent="." instance=ExtResource("5_811pk")]
+position = Vector2(502, -353)
+scale = Vector2(0.2, 0.2)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Tallblock" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(134, 281)
+rotation = -0.598648
+scale = Vector2(0.2, 1)
+
+[node name="Tallblock2" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(931, 281)
+rotation = 0.610865
+scale = Vector2(0.2, 1)
+
+[node name="RainbowBall" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(745, 196)
+scale = Vector2(0.3, 0.3)
+
+[node name="RainbowBall2" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(278, 178)
+scale = Vector2(0.3, 0.3)
+
+[node name="RainbowBall3" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(530, 312)
+scale = Vector2(0.25, 0.25)
+
+[node name="RainbowBall4" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(424, 64)
+scale = Vector2(0.15, 0.15)
+
+[node name="RainbowBall5" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(611, 62)
+scale = Vector2(0.15, 0.15)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(519, 46)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7mbijirdtlx1"]
+
+[ext_resource type="Texture2D" uid="uid://dt3qfx75pvalc" path="res://Art/TallBlockV2.png" id="1_r5yg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hra0"]
+size = Vector2(320, 640)
+
+[node name="Tallblock" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r5yg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7hra0")

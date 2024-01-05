@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3378jfu3bhef"]
+
+[ext_resource type="Texture2D" uid="uid://c1a1te3dlxuf6" path="res://Art/PushBlock.png" id="1_pn2dl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75rh2"]
+size = Vector2(320, 320)
+
+[node name="Pushblock" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pn2dl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_75rh2")
