@@ -1,25 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh2j8gy1nr35p"]
+[gd_scene load_steps=8 format=3 uid="uid://dh2j8gy1nr35p"]
 
 [ext_resource type="Script" path="res://Scenes/player_ball.gd" id="1_2k6cs"]
 [ext_resource type="Texture2D" uid="uid://do5bepc6a6tni" path="res://Art/PlayerBall.png" id="1_xgowt"]
+[ext_resource type="Script" path="res://Scenes/Trail.gd" id="3_xmeae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxp36"]
-friction = 0.41
-bounce = 0.62
+friction = 0.79
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m312k"]
 radius = 162.0
 
+[sub_resource type="Curve" id="Curve_734hj"]
+_data = [Vector2(0, 0.175824), 0.0, 0.0, 0, 0, Vector2(0.7, 0.692308), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_bcs2l"]
+colors = PackedColorArray(0.237539, 0.237539, 0.237539, 1, 0.41598, 0.41598, 0.41598, 1)
+
 [node name="PlayerBall" type="RigidBody2D"]
-mass = 8.65
+mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_wxp36")
-gravity_scale = 0.6
+gravity_scale = 0.5
 script = ExtResource("1_2k6cs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("1_xgowt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.09, 0.09)
 shape = SubResource("CircleShape2D_m312k")
+
+[node name="Trail" type="Line2D" parent="."]
+top_level = true
+z_index = -5
+points = PackedVector2Array(72, 2, 166, 7)
+width = 20.0
+width_curve = SubResource("Curve_734hj")
+gradient = SubResource("Gradient_bcs2l")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("3_xmeae")

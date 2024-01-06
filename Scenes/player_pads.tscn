@@ -1,59 +1,139 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhkrec6uo1lw"]
+[gd_scene load_steps=9 format=3 uid="uid://brhkrec6uo1lw"]
 
 [ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
 [ext_resource type="PackedScene" uid="uid://drse61ee2nkhd" path="res://Scenes/player_pad.tscn" id="2_bfe1v"]
 [ext_resource type="PackedScene" uid="uid://b7mbijirdtlx1" path="res://Scenes/tallblock.tscn" id="3_f8w25"]
 [ext_resource type="PackedScene" uid="uid://cf8q3qjwi6xvn" path="res://Scenes/rainbow_ball.tscn" id="4_hak1d"]
 [ext_resource type="PackedScene" uid="uid://dh2j8gy1nr35p" path="res://Scenes/player_ball.tscn" id="5_811pk"]
+[ext_resource type="PackedScene" uid="uid://3378jfu3bhef" path="res://Scenes/pushblock.tscn" id="6_utxph"]
+[ext_resource type="PackedScene" uid="uid://b53pm2d4uciie" path="res://HelperScenes/CurvyWall.tscn" id="7_hy80u"]
+[ext_resource type="PackedScene" uid="uid://8qjvk1y7umkv" path="res://Scenes/bumper.tscn" id="8_4ynwl"]
 
 [node name="Map" type="Node2D"]
+position = Vector2(424, 481)
 script = ExtResource("1_phpw6")
 
 [node name="PlayerPad1" parent="." instance=ExtResource("2_bfe1v")]
-position = Vector2(322, 544)
-scale = Vector2(0.4, 0.4)
+position = Vector2(340, 540)
+scale = Vector2(0.4, 0.35)
 
 [node name="PlayerPad2" parent="." instance=ExtResource("2_bfe1v")]
-position = Vector2(743, 542)
-scale = Vector2(-0.4, 0.4)
+position = Vector2(730, 540)
+scale = Vector2(-0.4, 0.35)
 
 [node name="PlayerBall" parent="." instance=ExtResource("5_811pk")]
-position = Vector2(502, -353)
-scale = Vector2(0.2, 0.2)
+position = Vector2(1229, 5.00002)
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Tallblock" parent="Environment" instance=ExtResource("3_f8w25")]
 z_index = -1
-position = Vector2(134, 281)
-rotation = -0.598648
-scale = Vector2(0.2, 1)
+position = Vector2(-120, -31)
+scale = Vector2(0.18, 0.7)
 
 [node name="Tallblock2" parent="Environment" instance=ExtResource("3_f8w25")]
 z_index = -1
-position = Vector2(931, 281)
-rotation = 0.610865
-scale = Vector2(0.2, 1)
+position = Vector2(884, 484)
+rotation = 1.22173
+scale = Vector2(0.1, 0.5)
 
 [node name="RainbowBall" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(745, 196)
+position = Vector2(899, -112)
 scale = Vector2(0.3, 0.3)
 
 [node name="RainbowBall2" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(278, 178)
+position = Vector2(565, -285)
 scale = Vector2(0.3, 0.3)
 
 [node name="RainbowBall3" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(530, 312)
+position = Vector2(436, -53)
 scale = Vector2(0.25, 0.25)
 
 [node name="RainbowBall4" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(424, 64)
+position = Vector2(283, 148)
 scale = Vector2(0.15, 0.15)
 
 [node name="RainbowBall5" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(611, 62)
+position = Vector2(771, 128)
 scale = Vector2(0.15, 0.15)
 
+[node name="Pushblock" parent="Environment" instance=ExtResource("6_utxph")]
+position = Vector2(1229, 182)
+scale = Vector2(0.08, 0.08)
+
+[node name="Tallblock3" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(182, 483)
+rotation = -1.22173
+scale = Vector2(0.1, 0.5)
+
+[node name="Tallblock4" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(1184, -29)
+scale = Vector2(0.18, 0.7)
+
+[node name="CurvyWalls" type="Node2D" parent="Environment"]
+
+[node name="CurvyWall" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
+
+[node name="CurvyWall2" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
+scale = Vector2(1, -1)
+
+[node name="CurvyWall3" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
+position = Vector2(1062, 3)
+scale = Vector2(-1, 1)
+
+[node name="CurvyWall4" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
+position = Vector2(1264, -62.0001)
+rotation = -0.436332
+scale = Vector2(-1, -1)
+
+[node name="CurvyWall5" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
+position = Vector2(1155, -13)
+scale = Vector2(-1, -1)
+
+[node name="Tallblock5" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(533, -443)
+rotation = 1.5708
+scale = Vector2(0.15, 1.6)
+
+[node name="Tallblock6" parent="Environment" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(1274, -29)
+scale = Vector2(0.18, 0.7)
+
+[node name="RainbowBall6" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(178, -114)
+scale = Vector2(0.3, 0.3)
+
+[node name="RainbowBall7" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(688, -60)
+scale = Vector2(0.25, 0.25)
+
+[node name="RainbowBall9" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(541, 181)
+scale = Vector2(0.15, 0.15)
+
+[node name="RainbowBall8" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(385, 270)
+scale = Vector2(0.15, 0.15)
+
+[node name="RainbowBall10" parent="Environment" instance=ExtResource("4_hak1d")]
+position = Vector2(694, 269)
+scale = Vector2(0.15, 0.15)
+
+[node name="Bumper" parent="Environment" instance=ExtResource("8_4ynwl")]
+position = Vector2(1032, 278)
+rotation = -0.0872665
+scale = Vector2(0.5, 0.5)
+skew = 0.523599
+
+[node name="Bumper2" parent="Environment" instance=ExtResource("8_4ynwl")]
+position = Vector2(37, 278)
+rotation = 0.0872665
+scale = Vector2(-0.5, 0.5)
+skew = -0.523599
+
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(519, 46)
+position = Vector2(1655, 482)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://8qjvk1y7umkv"]
+
+[ext_resource type="Texture2D" uid="uid://c47ojjj8jx88b" path="res://Art/bumper.png" id="1_kqydw"]
+
+[node name="Bumper" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-55, -27)
+texture = ExtResource("1_kqydw")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, -50, 2, -141, 17, -163, 25, -165, 31, -167, 36, -165, 42, -163, 52, -152, 62, -142, 63, -21, -9, 49, -32, 51, -53, 62, -59, 70, -172, 70, -191, 48, -194, 36, -189, 26, -172, 10, -85, 2, -67, -1, -54, -6, -37, -12, -27, -19, -9, -35)

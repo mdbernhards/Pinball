@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://3378jfu3bhef"]
+[gd_scene load_steps=4 format=3 uid="uid://3378jfu3bhef"]
 
+[ext_resource type="Script" path="res://Scenes/pushblock.gd" id="1_buaub"]
 [ext_resource type="Texture2D" uid="uid://c1a1te3dlxuf6" path="res://Art/PushBlock.png" id="1_pn2dl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75rh2"]
 size = Vector2(320, 320)
 
-[node name="Pushblock" type="StaticBody2D"]
+[node name="Pushblock" type="AnimatableBody2D"]
+script = ExtResource("1_buaub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pn2dl")
