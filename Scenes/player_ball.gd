@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var max_speed = 2000
+var max_speed = 1800
 
 func _ready():
 	pass

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdxg8t52uk1pk"]
+
+[ext_resource type="PackedScene" uid="uid://5khra06hh0u2" path="res://Scenes/block.tscn" id="1_0ogro"]
+
+[node name="CornerWall" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_0ogro")]
+position = Vector2(109.45, 109.31)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+
+[node name="Block2" parent="." instance=ExtResource("1_0ogro")]
+position = Vector2(67.6, 101)
+rotation = -1.1781
+scale = Vector2(0.17, 0.17)
+
+[node name="Block3" parent="." instance=ExtResource("1_0ogro")]
+position = Vector2(32.07, 77.3)
+rotation = -0.785398
+scale = Vector2(0.17, 0.17)
+
+[node name="Block4" parent="." instance=ExtResource("1_0ogro")]
+position = Vector2(8.34, 41.8)
+rotation = -0.392699
+scale = Vector2(0.17, 0.17)
+
+[node name="Block5" parent="." instance=ExtResource("1_0ogro")]
+position = Vector2(3.8147e-06, -1.52588e-05)
+scale = Vector2(0.17, 0.17)

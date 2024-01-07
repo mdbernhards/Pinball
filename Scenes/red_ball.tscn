@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brfkvcpn8p2cf"]
+[gd_scene load_steps=12 format=3 uid="uid://brfkvcpn8p2cf"]
 
 [ext_resource type="Script" path="res://Scenes/red_ball.gd" id="1_e64mu"]
 [ext_resource type="Texture2D" uid="uid://vila7vl5p83k" path="res://Art/redBallAnimation/Hit/Hit2.png" id="2_7njix"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ionmcdxjj2am" path="res://Art/redBallAnimation/Hit/Hit4.png" id="4_pt0lf"]
 [ext_resource type="Texture2D" uid="uid://bh4014ajvrlup" path="res://Art/redBallAnimation/Hit/Hit5.png" id="5_wkqlj"]
 [ext_resource type="Texture2D" uid="uid://cfvng0gnisteg" path="res://Art/redBallAnimation/Hit/hit1.png" id="6_67qjh"]
+[ext_resource type="AudioStream" uid="uid://cbr82oiadfk4i" path="res://Art/Sounds/bigPew.wav" id="7_6rkpy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vgp2c"]
-bounce = 5.0
+bounce = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsxvf"]
 animations = [{
@@ -56,5 +57,8 @@ shape = SubResource("CircleShape2D_bhvps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_f5gbw")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6rkpy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

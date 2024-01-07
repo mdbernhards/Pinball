@@ -5,36 +5,36 @@
 [node name="Wall" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(14, 428)
-rotation = 0.523599
+position = Vector2(97.9, 111.2)
+rotation = 0.610865
 scale = Vector2(0.17, 0.17)
 
 [node name="Block2" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-25, 401)
-rotation = 0.698132
+position = Vector2(59.45, 79.5)
+rotation = 0.767945
 scale = Vector2(0.17, 0.17)
 
 [node name="Block3" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-59, 367)
-rotation = 0.872665
+position = Vector2(26.51, 42.3)
+rotation = 0.925025
 scale = Vector2(0.17, 0.17)
 
 [node name="Block4" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-85, 329)
-rotation = 1.0472
+position = Vector2(-0.300003, 0.300018)
+rotation = 1.0821
 scale = Vector2(0.17, 0.17)
 
 [node name="Block5" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-104, 287)
-rotation = 1.22173
+position = Vector2(-20.26, -45.5)
+rotation = 1.23918
 scale = Vector2(0.17, 0.17)
 
 [node name="Block6" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-115, 243)
-rotation = 1.39626
+position = Vector2(-32.1, -93)
+rotation = 1.41372
 scale = Vector2(0.17, 0.17)
 
 [node name="Block7" parent="." instance=ExtResource("1_r7qfk")]
-position = Vector2(-118, 199)
+position = Vector2(-36, -142)
 rotation = 1.5708
 scale = Vector2(0.17, 0.17)

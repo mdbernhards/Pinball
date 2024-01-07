@@ -1,16 +1,16 @@
 extends Node2D
 
-var upSpeed = 20.0
-var downSpeed = 5.0
+var upSpeed = 17.5
+var downSpeed = 4.0
 
 var curvyWall
 var curvyWall_original_position
 var curvyWall_new_position
-var closedDistance = 90
+var closedDistance = -90
 var curvyWallSpeed = 20
 
 func _ready():
-	curvyWall = $Environment/CurvyWalls/CurvyWall5
+	curvyWall = $Environment/RightWall/CornerWall
 	curvyWall_original_position = Vector2(curvyWall.position.x, curvyWall.position.y)
 	curvyWall_new_position = Vector2(curvyWall.position.x + closedDistance, curvyWall.position.y)
 
