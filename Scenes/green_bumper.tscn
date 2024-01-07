@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmpn2wpmvyl15"]
+
+[ext_resource type="Texture2D" uid="uid://bmgoiejd0roxn" path="res://Art/GreenBumper.png" id="1_8bi03"]
+
+[node name="GreenBumper" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-55, -27)
+texture = ExtResource("1_8bi03")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4, -3)
+polygon = PackedVector2Array(16, -170, 34, -182, 57, -182, 70, -172, 70, 123, 58, 133, 34, 132, 17, 120, -34, 71, -45, 51, -56, 21, -65, -5, -68, -25, -65, -42, -56, -69, -45, -100, -35, -118)

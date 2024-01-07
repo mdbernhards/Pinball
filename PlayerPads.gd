@@ -1,10 +1,18 @@
 extends Node2D
 
-var upSpeed = 30.0
-var downSpeed = 10.0
+var upSpeed = 20.0
+var downSpeed = 5.0
+
+var curvyWall
+var curvyWall_original_position
+var curvyWall_new_position
+var closedDistance = 90
+var curvyWallSpeed = 20
 
 func _ready():
-	pass
+	curvyWall = $Environment/CurvyWalls/CurvyWall5
+	curvyWall_original_position = Vector2(curvyWall.position.x, curvyWall.position.y)
+	curvyWall_new_position = Vector2(curvyWall.position.x + closedDistance, curvyWall.position.y)
 
 func _process(delta):
 	if Input.is_action_pressed("left_pad"):
@@ -18,6 +26,10 @@ func _process(delta):
 			calculatePadSwing($PlayerPad2, delta, true)
 	else:
 		calculatePadSwing($PlayerPad2, delta, false)
+		
+	moveCurvyWallWhenShoot(delta)
+	
+	$SpeedLabel.text = "Speed: " + str(snapped($PlayerBall.linear_velocity.length(), 50))
 
 func calculatePadSwing(node, delta, isGoingUp):
 	var target_position
@@ -32,3 +44,12 @@ func calculatePadSwing(node, delta, isGoingUp):
 
 	var new_transform = node.get_node("Pad").transform.looking_at(target_position)
 	node.get_node("Pad").transform  = node.get_node("Pad").transform.interpolate_with(new_transform, new_speed)
+
+func moveCurvyWallWhenShoot(delta):
+	if Input.is_action_pressed("charge_power"):
+		curvyWall.position  = curvyWall.position.lerp(curvyWall_new_position, delta * curvyWallSpeed)
+	elif Input.is_action_just_released("charge_power"):
+		curvyWall.get_node("Timer").start()
+	elif curvyWall.get_node("Timer").is_stopped():
+		curvyWall.position  = curvyWall.position.lerp(curvyWall_original_position, delta * curvyWallSpeed)
+		

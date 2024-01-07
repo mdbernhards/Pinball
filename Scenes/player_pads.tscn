@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brhkrec6uo1lw"]
+[gd_scene load_steps=11 format=3 uid="uid://brhkrec6uo1lw"]
 
 [ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
 [ext_resource type="PackedScene" uid="uid://drse61ee2nkhd" path="res://Scenes/player_pad.tscn" id="2_bfe1v"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://3378jfu3bhef" path="res://Scenes/pushblock.tscn" id="6_utxph"]
 [ext_resource type="PackedScene" uid="uid://b53pm2d4uciie" path="res://HelperScenes/CurvyWall.tscn" id="7_hy80u"]
 [ext_resource type="PackedScene" uid="uid://8qjvk1y7umkv" path="res://Scenes/bumper.tscn" id="8_4ynwl"]
+[ext_resource type="PackedScene" uid="uid://brfkvcpn8p2cf" path="res://Scenes/red_ball.tscn" id="9_u83in"]
+[ext_resource type="PackedScene" uid="uid://bmpn2wpmvyl15" path="res://Scenes/green_bumper.tscn" id="10_8endj"]
 
 [node name="Map" type="Node2D"]
 position = Vector2(424, 481)
@@ -50,11 +52,11 @@ position = Vector2(436, -53)
 scale = Vector2(0.25, 0.25)
 
 [node name="RainbowBall4" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(283, 148)
+position = Vector2(353, -216)
 scale = Vector2(0.15, 0.15)
 
 [node name="RainbowBall5" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(771, 128)
+position = Vector2(967, -284)
 scale = Vector2(0.15, 0.15)
 
 [node name="Pushblock" parent="Environment" instance=ExtResource("6_utxph")]
@@ -89,8 +91,12 @@ rotation = -0.436332
 scale = Vector2(-1, -1)
 
 [node name="CurvyWall5" parent="Environment/CurvyWalls" instance=ExtResource("7_hy80u")]
-position = Vector2(1155, -13)
+position = Vector2(1065, -13)
 scale = Vector2(-1, -1)
+
+[node name="Timer" type="Timer" parent="Environment/CurvyWalls/CurvyWall5"]
+wait_time = 1.5
+one_shot = true
 
 [node name="Tallblock5" parent="Environment" instance=ExtResource("3_f8w25")]
 z_index = -1
@@ -112,15 +118,11 @@ position = Vector2(688, -60)
 scale = Vector2(0.25, 0.25)
 
 [node name="RainbowBall9" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(541, 181)
+position = Vector2(80, -279)
 scale = Vector2(0.15, 0.15)
 
 [node name="RainbowBall8" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(385, 270)
-scale = Vector2(0.15, 0.15)
-
-[node name="RainbowBall10" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(694, 269)
+position = Vector2(733, -212)
 scale = Vector2(0.15, 0.15)
 
 [node name="Bumper" parent="Environment" instance=ExtResource("8_4ynwl")]
@@ -135,5 +137,39 @@ rotation = 0.0872665
 scale = Vector2(-0.5, 0.5)
 skew = -0.523599
 
+[node name="RedBall" parent="Environment" instance=ExtResource("9_u83in")]
+position = Vector2(290, -381)
+scale = Vector2(0.4, 0.4)
+
+[node name="RedBall2" parent="Environment" instance=ExtResource("9_u83in")]
+position = Vector2(783, -373)
+scale = Vector2(0.4, 0.4)
+
+[node name="RedBall3" parent="Environment" instance=ExtResource("9_u83in")]
+position = Vector2(121, 36)
+scale = Vector2(0.22, 0.22)
+
+[node name="RedBall4" parent="Environment" instance=ExtResource("9_u83in")]
+position = Vector2(977, 61)
+scale = Vector2(0.22, 0.22)
+
+[node name="GreenBumper" parent="Environment" instance=ExtResource("10_8endj")]
+position = Vector2(320, 175)
+rotation = -0.523599
+scale = Vector2(0.3, 0.45)
+
+[node name="GreenBumper2" parent="Environment" instance=ExtResource("10_8endj")]
+position = Vector2(744, 175)
+rotation = 0.523599
+scale = Vector2(-0.3, 0.45)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1655, 482)
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = -341.0
+offset_top = 495.0
+offset_right = -301.0
+offset_bottom = 518.0
+theme_override_font_sizes/font_size = 30
+text = "Speed: "

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var max_speed = 1300
+var max_speed = 2000
 
 func _ready():
 	pass
@@ -18,3 +18,13 @@ func _integrate_forces(state):
 		t.origin.x = get_parent().get_node("Marker2D").position.x
 		t.origin.y = get_parent().get_node("Marker2D").position.y
 		state.set_transform(t)
+
+
+func _on_body_entered(body):
+	if body.get_node("HitAnimation"):
+		body.get_node("HitAnimation").play("Hit")
+
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body.get_node("HitAnimation"):
+		body.get_node("HitAnimation").play("Hit")

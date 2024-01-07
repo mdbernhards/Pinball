@@ -1,14 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8q3qjwi6xvn"]
+[gd_scene load_steps=17 format=3 uid="uid://cf8q3qjwi6xvn"]
 
-[ext_resource type="Texture2D" uid="uid://dm20fobeg5imx" path="res://Art/RainbowBall.png" id="1_3tpin"]
+[ext_resource type="Script" path="res://Scenes/rainbow_ball.gd" id="1_o2vjk"]
+[ext_resource type="Texture2D" uid="uid://d054fhwr8a0vo" path="res://Art/rainbowBallAnimation/RainbowBall1.png" id="1_pml56"]
+[ext_resource type="Texture2D" uid="uid://sv83awwopkos" path="res://Art/rainbowBallAnimation/RainbowBall2.png" id="2_qoj7b"]
+[ext_resource type="Texture2D" uid="uid://hmaypt5pxd8x" path="res://Art/rainbowBallAnimation/RainbowBall3.png" id="3_7ads4"]
+[ext_resource type="Texture2D" uid="uid://dh4wwgc1ar3gm" path="res://Art/rainbowBallAnimation/RainbowBall4.png" id="4_lj4en"]
+[ext_resource type="Texture2D" uid="uid://dj2m0jag5fnhp" path="res://Art/rainbowBallAnimation/RainbowBall5.png" id="5_ul5nf"]
+[ext_resource type="Texture2D" uid="uid://l64gt3lq6jeo" path="res://Art/rainbowBallAnimation/RainbowBall6.png" id="6_ikdww"]
+[ext_resource type="Texture2D" uid="uid://bql1h22pf8gc1" path="res://Art/rainbowBallAnimation/RainbowBall7.png" id="7_yhubr"]
+[ext_resource type="Texture2D" uid="uid://cjq7tknshrjc2" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit2.png" id="9_u018j"]
+[ext_resource type="Texture2D" uid="uid://c2c0uslx71pig" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit3.png" id="10_h1qa3"]
+[ext_resource type="Texture2D" uid="uid://c2qvwq58l7uxv" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit4.png" id="11_8fhqy"]
+[ext_resource type="Texture2D" uid="uid://bn6syu5kneibq" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit5.png" id="12_ulrn6"]
+[ext_resource type="Texture2D" uid="uid://dbitb2l5t8sn3" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit1.png" id="13_inwvo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyrbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pml56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qoj7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ads4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lj4en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ul5nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ikdww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yhubr")
+}],
+"loop": true,
+"name": &"rainbows",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5o7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_u018j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h1qa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8fhqy")
+}, {
+"duration": 2.9,
+"texture": ExtResource("12_ulrn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_inwvo")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 1.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ms3jj"]
-radius = 162.0
+radius = 173.104
 
 [node name="RainbowBall" type="StaticBody2D"]
+script = ExtResource("1_o2vjk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3tpin")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pyrbv")
+animation = &"rainbows"
+
+[node name="HitAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t5o7e")
+animation = &"Hit"
+speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ms3jj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ms3jj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
