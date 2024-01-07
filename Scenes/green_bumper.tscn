@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmpn2wpmvyl15"]
+[gd_scene load_steps=5 format=3 uid="uid://bmpn2wpmvyl15"]
 
 [ext_resource type="Texture2D" uid="uid://bmgoiejd0roxn" path="res://Art/GreenBumper.png" id="1_8bi03"]
+[ext_resource type="Script" path="res://Scenes/green_bumper.gd" id="1_p1rth"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5jjsb"]
+friction = 0.2
+bounce = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yefb"]
+height = 218.0
 
 [node name="GreenBumper" type="StaticBody2D"]
+script = ExtResource("1_p1rth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-55, -27)
@@ -11,3 +20,21 @@ texture = ExtResource("1_8bi03")
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(4, -3)
 polygon = PackedVector2Array(16, -170, 34, -182, 57, -182, 70, -172, 70, 123, 58, 133, 34, 132, 17, 120, -34, 71, -45, 51, -56, 21, -65, -5, -68, -25, -65, -42, -56, -69, -45, -100, -35, -118)
+
+[node name="BounceBord" type="StaticBody2D" parent="."]
+position = Vector2(148, -22)
+physics_material_override = SubResource("PhysicsMaterial_5jjsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBord"]
+position = Vector2(-77, -6)
+shape = SubResource("CapsuleShape2D_3yefb")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(148, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-77, -6)
+shape = SubResource("CapsuleShape2D_3yefb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

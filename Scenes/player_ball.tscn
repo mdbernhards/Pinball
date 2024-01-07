@@ -18,7 +18,7 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_bcs2l"]
 colors = PackedColorArray(0.237539, 0.237539, 0.237539, 1, 0.41598, 0.41598, 0.41598, 1)
 
-[node name="PlayerBall" type="RigidBody2D"]
+[node name="PlayerBall" type="RigidBody2D" groups=["PlayerBall"]]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_wxp36")
 gravity_scale = 0.5

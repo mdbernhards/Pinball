@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf8q3qjwi6xvn"]
+[gd_scene load_steps=18 format=3 uid="uid://cf8q3qjwi6xvn"]
 
 [ext_resource type="Script" path="res://Scenes/rainbow_ball.gd" id="1_o2vjk"]
 [ext_resource type="Texture2D" uid="uid://d054fhwr8a0vo" path="res://Art/rainbowBallAnimation/RainbowBall1.png" id="1_pml56"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://c2qvwq58l7uxv" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit4.png" id="11_8fhqy"]
 [ext_resource type="Texture2D" uid="uid://bn6syu5kneibq" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit5.png" id="12_ulrn6"]
 [ext_resource type="Texture2D" uid="uid://dbitb2l5t8sn3" path="res://Art/rainbowBallAnimation/HitAnimationV3/Hit1.png" id="13_inwvo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhqd6"]
+friction = 0.5
+bounce = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyrbv"]
 animations = [{
@@ -70,6 +74,7 @@ animations = [{
 radius = 173.104
 
 [node name="RainbowBall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_nhqd6")
 script = ExtResource("1_o2vjk")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

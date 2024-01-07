@@ -1,26 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://brfkvcpn8p2cf"]
+[gd_scene load_steps=11 format=3 uid="uid://brfkvcpn8p2cf"]
 
-[ext_resource type="Texture2D" uid="uid://cfavvj64n6bpe" path="res://Art/redBall.png" id="1_7kxwg"]
+[ext_resource type="Script" path="res://Scenes/red_ball.gd" id="1_e64mu"]
+[ext_resource type="Texture2D" uid="uid://vila7vl5p83k" path="res://Art/redBallAnimation/Hit/Hit2.png" id="2_7njix"]
+[ext_resource type="Texture2D" uid="uid://ikbjgwyscqld" path="res://Art/redBallAnimation/Hit/Hit3.png" id="3_w7w37"]
+[ext_resource type="Texture2D" uid="uid://ionmcdxjj2am" path="res://Art/redBallAnimation/Hit/Hit4.png" id="4_pt0lf"]
+[ext_resource type="Texture2D" uid="uid://bh4014ajvrlup" path="res://Art/redBallAnimation/Hit/Hit5.png" id="5_wkqlj"]
+[ext_resource type="Texture2D" uid="uid://cfvng0gnisteg" path="res://Art/redBallAnimation/Hit/hit1.png" id="6_67qjh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vgp2c"]
+bounce = 5.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsxvf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7kxwg")
+"texture": ExtResource("2_7njix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w7w37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pt0lf")
+}, {
+"duration": 6.0,
+"texture": ExtResource("5_wkqlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_67qjh")
 }],
-"loop": true,
-"name": &"rainbows",
+"loop": false,
+"name": &"Hit",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhvps"]
-radius = 162.0
+radius = 158.028
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5gbw"]
+radius = 174.003
 
 [node name="RedBall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_vgp2c")
+script = ExtResource("1_e64mu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vsxvf")
-animation = &"rainbows"
+animation = &"Hit"
+frame = 4
+speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bhvps")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_f5gbw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

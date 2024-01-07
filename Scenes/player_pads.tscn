@@ -154,13 +154,13 @@ position = Vector2(977, 61)
 scale = Vector2(0.22, 0.22)
 
 [node name="GreenBumper" parent="Environment" instance=ExtResource("10_8endj")]
-position = Vector2(320, 175)
-rotation = -0.523599
+position = Vector2(300, 175)
+rotation = -0.785398
 scale = Vector2(0.3, 0.45)
 
 [node name="GreenBumper2" parent="Environment" instance=ExtResource("10_8endj")]
-position = Vector2(744, 175)
-rotation = 0.523599
+position = Vector2(785, 175)
+rotation = 0.785398
 scale = Vector2(-0.3, 0.45)
 
 [node name="Marker2D" type="Marker2D" parent="."]
