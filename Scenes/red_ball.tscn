@@ -35,10 +35,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhvps"]
-radius = 158.028
+radius = 155.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f5gbw"]
-radius = 174.003
+[sub_resource type="CircleShape2D" id="CircleShape2D_egqu0"]
+radius = 176.003
 
 [node name="RedBall" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_vgp2c")
@@ -51,12 +51,14 @@ frame = 4
 speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_bhvps")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_f5gbw")
+visible = false
+shape = SubResource("CircleShape2D_egqu0")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_6rkpy")

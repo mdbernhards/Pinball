@@ -15,6 +15,7 @@ position = Vector2(550.7, 1)
 texture = ExtResource("2_2r83f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pad"]
+visible = false
 position = Vector2(550.7, 1)
 polygon = PackedVector2Array(-489.084, -47.9697, -121.407, -20.697, -110.296, -8.57574, -110.296, 27.7879, -132.518, 58.0909, -487.064, 55.0606, -550.7, -1)
 one_way_collision = true
@@ -28,6 +29,7 @@ scale = Vector2(0.540625, 0.528125)
 texture = ExtResource("3_d6slv")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Base"]
+visible = false
 polygon = PackedVector2Array(84.8484, -4.54544, 91.9192, -34.8485, 86.8687, -45.4545, 50.505, -54.5454, 13.1313, -60.606, -20.202, -65.1515, -49.495, -68.1818, -70.7071, -46.9697, -83.8384, -21.2121, -85.8586, 16.6667, -74.7475, 46.9697, -23.2323, 86.3636, 29.2929, 84.8485, 68.6869, 54.5455)
 one_way_collision_margin = 5.6
 

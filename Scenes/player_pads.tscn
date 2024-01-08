@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://brhkrec6uo1lw"]
+[gd_scene load_steps=17 format=3 uid="uid://brhkrec6uo1lw"]
 
 [ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
 [ext_resource type="PackedScene" uid="uid://drse61ee2nkhd" path="res://Scenes/player_pad.tscn" id="2_bfe1v"]
@@ -12,9 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bmpn2wpmvyl15" path="res://Scenes/green_bumper.tscn" id="10_8endj"]
 [ext_resource type="PackedScene" uid="uid://bdxg8t52uk1pk" path="res://HelperScenes/corner_wall.tscn" id="11_bggrj"]
 [ext_resource type="PackedScene" uid="uid://5khra06hh0u2" path="res://Scenes/block.tscn" id="11_jjn11"]
+[ext_resource type="PackedScene" uid="uid://c3vbq4woctprg" path="res://Scenes/charge_meter.tscn" id="13_ku0qd"]
+[ext_resource type="Texture2D" uid="uid://c54jiyg28sikf" path="res://Art/Background.png" id="14_lqwnx"]
+[ext_resource type="PackedScene" uid="uid://eqal5jcvuqs1" path="res://Scenes/blue_bumper.tscn" id="15_n1vff"]
+[ext_resource type="PackedScene" uid="uid://dkif1h4sa42kd" path="res://Scenes/yellow_box.tscn" id="16_aphxb"]
 
 [node name="Map" type="Node2D"]
-position = Vector2(424, 481)
+position = Vector2(424, 467)
 script = ExtResource("1_phpw6")
 
 [node name="PlayerPad1" parent="." instance=ExtResource("2_bfe1v")]
@@ -30,40 +34,74 @@ position = Vector2(1199, 5.00002)
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="RainbowBall" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(899, -112)
-scale = Vector2(0.3, 0.3)
+[node name="TextureRect" type="TextureRect" parent="Environment"]
+show_behind_parent = true
+z_index = -20
+z_as_relative = false
+offset_left = -424.0
+offset_top = -467.0
+offset_right = 1496.0
+offset_bottom = 613.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_lqwnx")
+stretch_mode = 2
 
-[node name="RainbowBall2" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(537, -272)
-scale = Vector2(0.3, 0.3)
+[node name="RainbowBalls" type="Node2D" parent="Environment"]
 
-[node name="RainbowBall3" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(434, -28)
+[node name="RainbowBall" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(950, -5)
 scale = Vector2(0.25, 0.25)
 
-[node name="RainbowBall4" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(364, -200)
+[node name="RainbowBall2" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(710, -245)
+scale = Vector2(0.25, 0.25)
+
+[node name="RainbowBall3" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(478, -344)
+scale = Vector2(0.1, 0.1)
+
+[node name="RainbowBall4" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(677, 137)
 scale = Vector2(0.15, 0.15)
 
-[node name="RainbowBall5" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(1025, -282)
+[node name="RainbowBall5" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(467, -7)
 scale = Vector2(0.15, 0.15)
 
-[node name="Pushblock" parent="Environment" instance=ExtResource("6_utxph")]
-position = Vector2(1198, 330)
-scale = Vector2(0.08, 0.08)
+[node name="RainbowBall6" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(830, -125)
+scale = Vector2(0.25, 0.25)
 
-[node name="CurvyWalls" type="Node2D" parent="Environment"]
+[node name="RainbowBall7" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(596, -344)
+scale = Vector2(0.1, 0.1)
 
-[node name="Tallblock6" parent="Environment" instance=ExtResource("3_f8w25")]
-z_index = -1
-position = Vector2(1244, -29)
-scale = Vector2(0.18, 0.7)
+[node name="RainbowBall8" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(618, -4)
+scale = Vector2(0.15, 0.15)
 
-[node name="RainbowBall6" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(178, -114)
-scale = Vector2(0.3, 0.3)
+[node name="RainbowBall9" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
+position = Vector2(411, 136)
+scale = Vector2(0.15, 0.15)
+
+[node name="RedBalls" type="Node2D" parent="Environment"]
+
+[node name="RedBall" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(180, -258)
+scale = Vector2(0.25, 0.25)
+
+[node name="RedBall2" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(180, -58)
+scale = Vector2(0.25, 0.25)
+
+[node name="RedBall3" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(75, -158)
+scale = Vector2(0.2, 0.2)
+
+[node name="RedBall4" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(285, -158)
+scale = Vector2(0.2, 0.2)
 
 [node name="LeftWall" type="Node2D" parent="Environment"]
 
@@ -125,7 +163,7 @@ position = Vector2(-1046.69, -395)
 rotation = 1.5708
 
 [node name="Timer" type="Timer" parent="Environment/RightWall/CornerWall"]
-wait_time = 1.5
+wait_time = 1.2
 one_shot = true
 
 [node name="Block6" parent="Environment/RightWall/CornerWall" instance=ExtResource("11_jjn11")]
@@ -152,6 +190,39 @@ position = Vector2(-7.62939e-06, -199.69)
 rotation = -1.5708
 scale = Vector2(0.17, 0.17)
 
+[node name="CornerWall2" parent="Environment/RightWall" instance=ExtResource("11_bggrj")]
+z_index = -2
+position = Vector2(-1132.69, -395)
+rotation = 1.5708
+
+[node name="Timer" type="Timer" parent="Environment/RightWall/CornerWall2"]
+wait_time = 1.5
+one_shot = true
+
+[node name="Block6" parent="Environment/RightWall/CornerWall2" instance=ExtResource("11_jjn11")]
+z_index = -9
+position = Vector2(0, -49.6901)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+
+[node name="Block7" parent="Environment/RightWall/CornerWall2" instance=ExtResource("11_jjn11")]
+z_index = -9
+position = Vector2(0, -99.6901)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+
+[node name="Block8" parent="Environment/RightWall/CornerWall2" instance=ExtResource("11_jjn11")]
+z_index = -9
+position = Vector2(0, -149.69)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+
+[node name="Block9" parent="Environment/RightWall/CornerWall2" instance=ExtResource("11_jjn11")]
+z_index = -9
+position = Vector2(-7.62939e-06, -199.69)
+rotation = -1.5708
+scale = Vector2(0.17, 0.17)
+
 [node name="Tallblock7" parent="Environment/RightWall" instance=ExtResource("3_f8w25")]
 z_index = 2
 position = Vector2(-696.498, -395)
@@ -163,17 +234,15 @@ z_index = -1
 position = Vector2(-1156, 278)
 scale = Vector2(0.17, 0.17)
 
-[node name="RainbowBall7" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(691, -31)
-scale = Vector2(0.25, 0.25)
+[node name="Tallblock8" parent="Environment/RightWall" instance=ExtResource("3_f8w25")]
+z_index = -3
+position = Vector2(-1242, 67)
+rotation = 3.14159
+scale = Vector2(0.17, -0.39)
 
-[node name="RainbowBall9" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(37, -282)
-scale = Vector2(0.15, 0.15)
-
-[node name="RainbowBall8" parent="Environment" instance=ExtResource("4_hak1d")]
-position = Vector2(733, -212)
-scale = Vector2(0.15, 0.15)
+[node name="Pushblock" parent="Environment" instance=ExtResource("6_utxph")]
+position = Vector2(1199, 330)
+scale = Vector2(0.08, 0.08)
 
 [node name="Bumper" parent="Environment" instance=ExtResource("8_4ynwl")]
 position = Vector2(1030, 212)
@@ -187,22 +256,6 @@ rotation = 0.226893
 scale = Vector2(-0.5, 0.5)
 skew = -0.523599
 
-[node name="RedBall" parent="Environment" instance=ExtResource("9_u83in")]
-position = Vector2(278, -347)
-scale = Vector2(0.4, 0.4)
-
-[node name="RedBall2" parent="Environment" instance=ExtResource("9_u83in")]
-position = Vector2(787, -351)
-scale = Vector2(0.4, 0.4)
-
-[node name="RedBall3" parent="Environment" instance=ExtResource("9_u83in")]
-position = Vector2(385, 217)
-scale = Vector2(0.22, 0.22)
-
-[node name="RedBall4" parent="Environment" instance=ExtResource("9_u83in")]
-position = Vector2(744, 236)
-scale = Vector2(0.22, 0.22)
-
 [node name="GreenBumper" parent="Environment" instance=ExtResource("10_8endj")]
 position = Vector2(102, 170)
 rotation = -0.785398
@@ -212,6 +265,29 @@ scale = Vector2(0.3, 0.45)
 position = Vector2(976, 170)
 rotation = 0.785398
 scale = Vector2(-0.3, 0.45)
+
+[node name="ChargeMeter" parent="Environment" instance=ExtResource("13_ku0qd")]
+position = Vector2(1381, 272)
+scale = Vector2(0.35, 0.35)
+
+[node name="BlueTriangle" parent="Environment" instance=ExtResource("15_n1vff")]
+position = Vector2(926, -275)
+scale = Vector2(0.13, 0.13)
+
+[node name="BlueTriangle2" parent="Environment" instance=ExtResource("15_n1vff")]
+position = Vector2(1051, -205)
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+
+[node name="YellowBox" parent="Environment" instance=ExtResource("16_aphxb")]
+position = Vector2(230, 250)
+rotation = 0.785398
+scale = Vector2(0.07, 0.07)
+
+[node name="YellowBox2" parent="Environment" instance=ExtResource("16_aphxb")]
+position = Vector2(840, 250)
+rotation = 0.785398
+scale = Vector2(0.07, 0.07)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1625, 482)
@@ -223,3 +299,4 @@ offset_right = -301.0
 offset_bottom = 518.0
 theme_override_font_sizes/font_size = 30
 text = "Speed: "
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqal5jcvuqs1"]
+
+[ext_resource type="Texture2D" uid="uid://bsqytpqs4o2ds" path="res://Art/BlueTriangle.png" id="1_1py6m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iop5i"]
+friction = 0.21
+bounce = 0.65
+
+[node name="BlueTriangle" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_iop5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-55, -27)
+texture = ExtResource("1_1py6m")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(193, -32, -55, 0, -531, 109, -531, -173, -55, -64)

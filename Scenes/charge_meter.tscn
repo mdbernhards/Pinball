@@ -1,0 +1,124 @@
+[gd_scene load_steps=28 format=3 uid="uid://c3vbq4woctprg"]
+
+[ext_resource type="Texture2D" uid="uid://dsbnc7v3vf6f7" path="res://Art/ChargeMeter/ChargeMeter0.png" id="1_cm0pj"]
+[ext_resource type="Script" path="res://Scenes/charge_meter.gd" id="1_nh0hm"]
+[ext_resource type="Texture2D" uid="uid://gm3ty0fii0he" path="res://Art/ChargeMeter/ChargeMeter1.png" id="2_631xo"]
+[ext_resource type="Texture2D" uid="uid://cw4ryrnvh0gn" path="res://Art/ChargeMeter/ChargeMeter2.png" id="3_8xxsm"]
+[ext_resource type="Texture2D" uid="uid://cf7cwnmhgexcl" path="res://Art/ChargeMeter/ChargeMeter3.png" id="4_03vag"]
+[ext_resource type="Texture2D" uid="uid://dy8xvk7a4ny3q" path="res://Art/ChargeMeter/ChargeMeter4.png" id="5_frjoc"]
+[ext_resource type="Texture2D" uid="uid://dgh61bw8du0vf" path="res://Art/ChargeMeter/ChargeMeter5.png" id="6_ktq37"]
+[ext_resource type="Texture2D" uid="uid://bw25or1tnf3c2" path="res://Art/ChargeMeter/ChargeMeter6.png" id="7_p04e4"]
+[ext_resource type="Texture2D" uid="uid://cif76bl2lxjwf" path="res://Art/ChargeMeter/ChargeMeter7.png" id="8_81fsi"]
+[ext_resource type="Texture2D" uid="uid://cyrf74kvwqwhq" path="res://Art/ChargeMeter/ChargeMeter8.png" id="9_6862q"]
+[ext_resource type="Texture2D" uid="uid://oh1bcnxlxnp3" path="res://Art/ChargeMeter/ChargeMeter9.png" id="10_cwsfv"]
+[ext_resource type="Texture2D" uid="uid://dpnjmlmy8l7ja" path="res://Art/ChargeMeter/ChargeMeter10.png" id="11_dwmv6"]
+[ext_resource type="Texture2D" uid="uid://cmp25xxt0yhjb" path="res://Art/ChargeMeter/ChargeMeter11.png" id="12_b0udn"]
+[ext_resource type="Texture2D" uid="uid://c75rsar7l2tt2" path="res://Art/ChargeMeter/ChargeMeter12.png" id="13_ltkwj"]
+[ext_resource type="Texture2D" uid="uid://boausbyyhf7fb" path="res://Art/ChargeMeter/ChargeMeter13.png" id="14_gc3r4"]
+[ext_resource type="Texture2D" uid="uid://c4ogyhgcm8ahn" path="res://Art/ChargeMeter/ChargeMeter14.png" id="15_jqhvp"]
+[ext_resource type="Texture2D" uid="uid://f8p72flnorn6" path="res://Art/ChargeMeter/ChargeMeter15.png" id="16_foxwf"]
+[ext_resource type="Texture2D" uid="uid://cna8std5fsmsr" path="res://Art/ChargeMeter/ChargeMeter16.png" id="17_5hcvs"]
+[ext_resource type="Texture2D" uid="uid://cm3joyhtwa2xj" path="res://Art/ChargeMeter/ChargeMeter17.png" id="18_8h4au"]
+[ext_resource type="Texture2D" uid="uid://c5ehngmlob0kc" path="res://Art/ChargeMeter/ChargeMeter18.png" id="19_mhrsw"]
+[ext_resource type="Texture2D" uid="uid://dpwotr3kjwyhg" path="res://Art/ChargeMeter/ChargeMeter19.png" id="20_7vxiu"]
+[ext_resource type="Texture2D" uid="uid://dxlpnyyni8vq6" path="res://Art/ChargeMeter/ChargeMeter20.png" id="21_bf70b"]
+[ext_resource type="Texture2D" uid="uid://bji1vfp6hqvs1" path="res://Art/ChargeMeter/ChargeMeter21.png" id="22_ykq1i"]
+[ext_resource type="Texture2D" uid="uid://dvu24njgf6qdo" path="res://Art/ChargeMeter/ChargeMeter22.png" id="23_0jg5t"]
+[ext_resource type="Texture2D" uid="uid://bgttqbx2v57du" path="res://Art/ChargeMeter/ChargeMeter23.png" id="24_awqjd"]
+[ext_resource type="Texture2D" uid="uid://cx6v11owpyld1" path="res://Art/ChargeMeter/ChargeMeter24.png" id="25_7v07x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyyyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cm0pj")
+}, {
+"duration": 10.0,
+"texture": ExtResource("1_cm0pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_631xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8xxsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03vag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_frjoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ktq37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p04e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_81fsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6862q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cwsfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dwmv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b0udn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ltkwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gc3r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jqhvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_foxwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_5hcvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8h4au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mhrsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7vxiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bf70b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ykq1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0jg5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_awqjd")
+}, {
+"duration": 8.0,
+"texture": ExtResource("25_7v07x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7v07x")
+}],
+"loop": true,
+"name": &"Charge",
+"speed": 55.0
+}]
+
+[node name="ChargeMeter" type="Node2D"]
+script = ExtResource("1_nh0hm")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uyyyc")
+animation = &"Charge"

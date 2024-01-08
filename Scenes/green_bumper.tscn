@@ -24,6 +24,7 @@ position = Vector2(-55, -27)
 texture = ExtResource("1_8bi03")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(4, -3)
 polygon = PackedVector2Array(16, -170, 34, -182, 57, -182, 70, -172, 70, 123, 58, 133, 34, 132, 17, 120, -34, 71, -45, 51, -56, 21, -65, -5, -68, -25, -65, -42, -56, -69, -45, -100, -35, -118)
 
@@ -32,6 +33,7 @@ position = Vector2(148, -22)
 physics_material_override = SubResource("PhysicsMaterial_5jjsb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBord"]
+visible = false
 position = Vector2(-77, -6)
 shape = SubResource("CapsuleShape2D_62kcc")
 disabled = true
@@ -40,6 +42,7 @@ disabled = true
 position = Vector2(148, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-77, -6)
 shape = SubResource("CapsuleShape2D_3yefb")
 
