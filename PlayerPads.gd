@@ -52,4 +52,3 @@ func moveCurvyWallWhenShoot(delta):
 		curvyWall.get_node("Timer").start()
 	elif curvyWall.get_node("Timer").is_stopped():
 		curvyWall.position  = curvyWall.position.lerp(curvyWall_original_position, delta * curvyWallSpeed)
-		

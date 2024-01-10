@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbk3ui6ltvt0p"]
+
+[ext_resource type="Texture2D" uid="uid://b3qj2m3k73r5a" path="res://Art/PinkBar.png" id="1_6fpap"]
+
+[node name="PinkBar" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 90)
+texture = ExtResource("1_6fpap")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-34, -160, 0, -229, 34, -160, 34, 160, 0, 219, -34, 160)

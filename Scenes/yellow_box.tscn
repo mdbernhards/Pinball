@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkif1h4sa42kd"]
+[gd_scene load_steps=4 format=3 uid="uid://dkif1h4sa42kd"]
 
 [ext_resource type="Texture2D" uid="uid://bdimg7wr71p5k" path="res://Art/YellowBox.png" id="1_4e2t5"]
+[ext_resource type="Script" path="res://Scenes/yellow_box.gd" id="1_mprsq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27h4w"]
 size = Vector2(640, 640)
 
 [node name="YellowBox" type="StaticBody2D"]
+script = ExtResource("1_mprsq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4e2t5")

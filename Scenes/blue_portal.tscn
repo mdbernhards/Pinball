@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://xphme0qnijq5"]
+
+[ext_resource type="Script" path="res://Scenes/blue_portal.gd" id="1_dbkt8"]
+[ext_resource type="Texture2D" uid="uid://dhoia4a6sxbta" path="res://Art/BluePortal.png" id="1_lwj2e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jl5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lwj2e")
+}],
+"loop": false,
+"name": &"Hit1",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um3ve"]
+radius = 7.0
+height = 500.0
+
+[node name="BluePortal" type="StaticBody2D"]
+script = ExtResource("1_dbkt8")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0jl5r")
+animation = &"Hit1"
+speed_scale = 10.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(60, 258, 38, 279, -9, 276, 30, 245, 32, -240, -4, -276, 39, -275, 59, -258)
+
+[node name="TeleportArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportArea"]
+visible = false
+position = Vector2(32, 0)
+shape = SubResource("CapsuleShape2D_um3ve")
+
+[connection signal="body_entered" from="TeleportArea" to="." method="_on_teleport_area_body_entered"]

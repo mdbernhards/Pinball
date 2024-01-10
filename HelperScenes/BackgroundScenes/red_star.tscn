@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r84psjpt08vb"]
+
+[ext_resource type="Texture2D" uid="uid://mlg3o5nequr2" path="res://Art/Backgrounds/RedStar.png" id="1_avvo6"]
+
+[node name="RedStar" type="Sprite2D"]
+position = Vector2(5, 5)
+texture = ExtResource("1_avvo6")

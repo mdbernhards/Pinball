@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4phl6dac8ekv"]
+
+[ext_resource type="Texture2D" uid="uid://cue5sdgjjg25v" path="res://Art/Backgrounds/PrototypeRainbowCloud.png" id="1_4plu8"]
+
+[node name="Rainbow_cloud" type="Sprite2D"]
+texture = ExtResource("1_4plu8")

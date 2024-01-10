@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d65wsesiqbdt"]
+
+[ext_resource type="Script" path="res://Scenes/orange_portal.gd" id="1_scoyp"]
+[ext_resource type="Texture2D" uid="uid://3yuo71jmv75u" path="res://Art/OrangePortal.png" id="1_wx804"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0sqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wx804")
+}],
+"loop": false,
+"name": &"Hit1",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ljrx"]
+radius = 7.0
+height = 500.0
+
+[node name="OrangePortal" type="StaticBody2D"]
+script = ExtResource("1_scoyp")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j0sqo")
+animation = &"Hit1"
+speed_scale = 10.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-68, 255, -43, 275, -7, 276, -45, 235, -44, -244, -4, -276, -48, -276, -68, -249)
+
+[node name="TeleportArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportArea"]
+visible = false
+position = Vector2(-42, 0)
+shape = SubResource("CapsuleShape2D_4ljrx")
+
+[connection signal="body_entered" from="TeleportArea" to="." method="_on_teleport_area_body_entered"]
