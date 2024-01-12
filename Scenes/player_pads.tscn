@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://brhkrec6uo1lw"]
+[gd_scene load_steps=24 format=3 uid="uid://brhkrec6uo1lw"]
 
 [ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
 [ext_resource type="Texture2D" uid="uid://rp5y7tsl84at" path="res://Art/Backgrounds/BackgroundV4.png" id="2_2t6cs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4phl6dac8ekv" path="res://HelperScenes/BackgroundScenes/raindow_cloud.tscn" id="3_lh35v"]
 [ext_resource type="PackedScene" uid="uid://cf8q3qjwi6xvn" path="res://Scenes/rainbow_ball.tscn" id="4_hak1d"]
 [ext_resource type="PackedScene" uid="uid://dh2j8gy1nr35p" path="res://Scenes/player_ball.tscn" id="5_811pk"]
+[ext_resource type="Texture2D" uid="uid://cskq0eq7kl4kr" path="res://Art/Backgrounds/RainbowShield.png" id="5_qy0qg"]
 [ext_resource type="PackedScene" uid="uid://3378jfu3bhef" path="res://Scenes/pushblock.tscn" id="6_utxph"]
 [ext_resource type="PackedScene" uid="uid://b53pm2d4uciie" path="res://HelperScenes/CurvyWall.tscn" id="7_hy80u"]
 [ext_resource type="PackedScene" uid="uid://8qjvk1y7umkv" path="res://Scenes/bumper.tscn" id="8_4ynwl"]
@@ -21,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://dkif1h4sa42kd" path="res://Scenes/yellow_box.tscn" id="16_aphxb"]
 [ext_resource type="PackedScene" uid="uid://xphme0qnijq5" path="res://Scenes/blue_portal.tscn" id="18_1gqyk"]
 [ext_resource type="PackedScene" uid="uid://d65wsesiqbdt" path="res://Scenes/orange_portal.tscn" id="19_x56ir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4368b"]
+radius = 32.0
+height = 1976.0
 
 [node name="Map" type="Node2D"]
 position = Vector2(424, 465)
@@ -42,14 +47,43 @@ texture = ExtResource("2_2t6cs")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="RaindowCloud" parent="Environment/TextureRect" instance=ExtResource("3_lh35v")]
-position = Vector2(977, 544)
-scale = Vector2(0.5, 0.5)
-
 [node name="RedStar" parent="Environment/TextureRect" instance=ExtResource("3_dptvn")]
 position = Vector2(609, 339)
 
 [node name="RainbowBalls" type="Node2D" parent="Environment"]
+
+[node name="RaindowShield" parent="Environment/RainbowBalls" instance=ExtResource("3_lh35v")]
+position = Vector2(540, 147)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_qy0qg")
+
+[node name="RainbowBall1" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(268, -280)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall2" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(384, 22)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall3" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(234, 312)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall4" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(-114, 362)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall5" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(-364, 134)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall6" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(-326, -210)
+scale = Vector2(0.23, 0.23)
+
+[node name="RainbowBall7" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+position = Vector2(-34, -388)
+scale = Vector2(0.23, 0.23)
 
 [node name="RainbowBall" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
 position = Vector2(950, -5)
@@ -63,14 +97,6 @@ scale = Vector2(0.22, 0.22)
 position = Vector2(460, -344)
 scale = Vector2(0.1, 0.1)
 
-[node name="RainbowBall4" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
-position = Vector2(680, 140)
-scale = Vector2(0.15, 0.15)
-
-[node name="RainbowBall5" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
-position = Vector2(450, -5)
-scale = Vector2(0.15, 0.15)
-
 [node name="RainbowBall6" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
 position = Vector2(830, -125)
 scale = Vector2(0.22, 0.22)
@@ -78,14 +104,6 @@ scale = Vector2(0.22, 0.22)
 [node name="RainbowBall7" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
 position = Vector2(610, -344)
 scale = Vector2(0.1, 0.1)
-
-[node name="RainbowBall8" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
-position = Vector2(620, -5)
-scale = Vector2(0.15, 0.15)
-
-[node name="RainbowBall9" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
-position = Vector2(390, 140)
-scale = Vector2(0.15, 0.15)
 
 [node name="RedBalls" type="Node2D" parent="Environment"]
 
@@ -103,6 +121,14 @@ scale = Vector2(0.2, 0.2)
 
 [node name="RedBall4" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
 position = Vector2(285, -133)
+scale = Vector2(0.2, 0.2)
+
+[node name="RedBall5" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(673, -360)
+scale = Vector2(0.2, 0.2)
+
+[node name="RedBall6" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
+position = Vector2(401, -360)
 scale = Vector2(0.2, 0.2)
 
 [node name="LeftWall" type="Node2D" parent="Environment"]
@@ -311,6 +337,13 @@ scale = Vector2(0.2, 0.3)
 [node name="OrangePortal" parent="Environment" instance=ExtResource("19_x56ir")]
 position = Vector2(-22, -5)
 scale = Vector2(0.2, 0.3)
+
+[node name="DeathZone" type="Area2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/DeathZone"]
+position = Vector2(548, 754)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4368b")
 
 [node name="PlayerPad1" parent="." instance=ExtResource("2_bfe1v")]
 position = Vector2(340, 540)

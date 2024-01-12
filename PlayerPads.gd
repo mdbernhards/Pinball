@@ -30,6 +30,7 @@ func _process(delta):
 	moveCurvyWallWhenShoot(delta)
 	
 	$SpeedLabel.text = "Speed: " + str(snapped($PlayerBall.linear_velocity.length(), 50))
+	$Environment/RainbowBalls/RaindowShield.rotation += 0.005
 
 func calculatePadSwing(node, delta, isGoingUp):
 	var target_position

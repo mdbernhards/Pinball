@@ -9,3 +9,7 @@ func _process(delta):
 	if curve.get_baked_points().size() > MAX_POINTS:
 		curve.remove_point(0)
 	points = curve.get_baked_points()
+	
+	if get_parent().isTeleporting:
+		curve.clear_points()
+		points = curve.get_baked_points()
