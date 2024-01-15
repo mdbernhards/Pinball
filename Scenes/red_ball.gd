@@ -8,10 +8,28 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	var groups = body.get_groups()
-	if  groups and groups[0] == "PlayerBall":
+	if groups and groups[0] == "PlayerBall":
 		$Sprite.play("Hit")
 		$HitSound.play()
-		body.linear_velocity = body.linear_velocity.normalized() * 1300
+		body.linear_velocity = body.linear_velocity * 3
 		$GPUParticles2D.position.x = clamp(position.x, -140, 140)
 		$GPUParticles2D.position.y = clamp(position.y, -140, 140)
 		body.get_node("GPUParticles2D").emitting = true
+		ShakeMath(body.linear_velocity.length())
+		AddToScore()
+
+func AddToScore():
+		var ScoreArr = get_tree().get_nodes_in_group("ScoreLogic")
+		ScoreArr[0].AddToCombo("RedBall")
+
+func ShakeMath(velocity):
+	if velocity > 500 and velocity < 750:
+		get_tree().call_group("Camera", "start_shake", 0.1)
+	elif velocity > 750 and velocity < 1000:
+		get_tree().call_group("Camera", "start_shake", 0.15)
+	elif velocity > 1000 and velocity < 1250:
+		get_tree().call_group("Camera", "start_shake", 0.2)
+	elif velocity > 1250 and velocity < 1500:
+		get_tree().call_group("Camera", "start_shake", 0.25)
+	elif velocity > 1500:
+		get_tree().call_group("Camera", "start_shake", 0.3)

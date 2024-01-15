@@ -17,6 +17,26 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_7njix")
 }, {
+"duration": 5.0,
+"texture": ExtResource("3_w7w37")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_pt0lf")
+}, {
+"duration": 100.0,
+"texture": ExtResource("5_wkqlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_67qjh")
+}],
+"loop": true,
+"name": &"ComboHit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7njix")
+}, {
 "duration": 1.0,
 "texture": ExtResource("3_w7w37")
 }, {
@@ -97,8 +117,7 @@ script = ExtResource("1_e64mu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vsxvf")
-animation = &"Hit"
-frame = 4
+animation = &"ComboHit"
 speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

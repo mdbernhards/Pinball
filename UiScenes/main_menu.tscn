@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://cln3xv27tgtu3"]
+
+[ext_resource type="Texture2D" uid="uid://c54jiyg28sikf" path="res://Art/Background.png" id="1_6qs3b"]
+[ext_resource type="Texture2D" uid="uid://bqugv11mytxi7" path="res://Art/UI/Button.png" id="2_n4mwt"]
+[ext_resource type="FontFile" uid="uid://cbhh37to6jjdh" path="res://Art/Fonts/Silkscreen/Silkscreen-Bold.ttf" id="2_vfirs"]
+[ext_resource type="Texture2D" uid="uid://c638qxi6elky0" path="res://Art/UI/ButtonPressed.png" id="3_vtlsb"]
+[ext_resource type="FontFile" uid="uid://5dp2m40qp7cv" path="res://Art/Fonts/Silkscreen/Silkscreen-Regular.ttf" id="4_kb2hn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6qs3b")
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -100.0
+offset_right = 750.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.3)
+texture_normal = ExtResource("2_n4mwt")
+texture_hover = ExtResource("3_vtlsb")
+
+[node name="Label" type="Label" parent="PlayButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -38.5
+offset_right = 90.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_kb2hn")
+theme_override_font_sizes/font_size = 130
+text = "PLAY"
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = 90.0
+offset_right = 750.0
+offset_bottom = 570.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.3)
+texture_normal = ExtResource("2_n4mwt")
+texture_hover = ExtResource("3_vtlsb")
+
+[node name="Label" type="Label" parent="SettingsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -38.5
+offset_right = 90.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_kb2hn")
+theme_override_font_sizes/font_size = 130
+text = "Settings"
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = 280.0
+offset_right = 750.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.3)
+texture_normal = ExtResource("2_n4mwt")
+texture_hover = ExtResource("3_vtlsb")
+
+[node name="Label" type="Label" parent="QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -38.5
+offset_right = 90.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_kb2hn")
+theme_override_font_sizes/font_size = 130
+text = "Quit"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 196.0
+offset_right = 400.0
+offset_bottom = 299.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vfirs")
+theme_override_font_sizes/font_size = 80
+text = "Pixel pinball"

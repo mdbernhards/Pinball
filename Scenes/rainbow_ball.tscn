@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://7kx1gc5evw5s" path="res://Art/boom.wav" id="14_p5vfk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhqd6"]
-friction = 0.61
-bounce = 0.8
+friction = 0.5
+bounce = 0.9
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyrbv"]
 animations = [{

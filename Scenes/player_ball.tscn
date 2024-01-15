@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scenes/Trail.gd" id="3_xmeae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxp36"]
-friction = 0.79
-bounce = 0.5
+friction = 0.75
+bounce = 0.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m312k"]
 radius = 162.0
@@ -89,7 +89,7 @@ shape = SubResource("CircleShape2D_m312k")
 
 [node name="Trail" type="Line2D" parent="."]
 top_level = true
-z_index = -5
+z_index = -3
 points = PackedVector2Array(72, 2, 166, 7)
 width = 20.0
 width_curve = SubResource("Curve_734hj")
@@ -101,7 +101,7 @@ antialiased = true
 script = ExtResource("3_xmeae")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-z_index = -4
+z_index = -2
 scale = Vector2(0.6, 0.6)
 emitting = false
 amount = 170
