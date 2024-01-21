@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc788ntxgwpls"]
+
+[ext_resource type="Texture2D" uid="uid://4q7bgix7r633" path="res://Art/ReloadTriangle.png" id="1_vp85p"]
+
+[node name="ReloadTriangle" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-55, -27)
+texture = ExtResource("1_vp85p")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(193, -32, -55, 0, -531, 109, -531, -173, -55, -64)

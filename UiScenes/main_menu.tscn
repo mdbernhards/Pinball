@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cln3xv27tgtu3"]
+[gd_scene load_steps=8 format=3 uid="uid://cln3xv27tgtu3"]
 
 [ext_resource type="Texture2D" uid="uid://c54jiyg28sikf" path="res://Art/Background.png" id="1_6qs3b"]
+[ext_resource type="Script" path="res://UiScenes/main_menu.gd" id="1_urjtv"]
 [ext_resource type="Texture2D" uid="uid://bqugv11mytxi7" path="res://Art/UI/Button.png" id="2_n4mwt"]
 [ext_resource type="FontFile" uid="uid://cbhh37to6jjdh" path="res://Art/Fonts/Silkscreen/Silkscreen-Bold.ttf" id="2_vfirs"]
 [ext_resource type="Texture2D" uid="uid://c638qxi6elky0" path="res://Art/UI/ButtonPressed.png" id="3_vtlsb"]
 [ext_resource type="FontFile" uid="uid://5dp2m40qp7cv" path="res://Art/Fonts/Silkscreen/Silkscreen-Regular.ttf" id="4_kb2hn"]
+[ext_resource type="AudioStream" uid="uid://cifonhtn04fdx" path="res://Art/Sounds/Music/8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3" id="6_62nx2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,8 +15,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_urjtv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -135,3 +139,10 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_vfirs")
 theme_override_font_sizes/font_size = 80
 text = "Pixel pinball"
+
+[node name="Music1" type="AudioStreamPlayer2D" parent="." groups=["Music"]]
+position = Vector2(962, 357)
+stream = ExtResource("6_62nx2")
+autoplay = true
+
+[connection signal="finished" from="Music1" to="." method="_on_music_1_finished"]

@@ -52,6 +52,29 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_inwvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u018j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h1qa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8fhqy")
+}, {
+"duration": 120.0,
+"texture": ExtResource("12_ulrn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_inwvo")
+}],
+"loop": false,
+"name": &"ComboHit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_u018j")
 }, {
 "duration": 1.0,
@@ -90,7 +113,7 @@ sprite_frames = SubResource("SpriteFrames_t5o7e")
 animation = &"Hit"
 speed_scale = 10.0
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." groups=["SoundEffect"]]
 stream = ExtResource("14_p5vfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

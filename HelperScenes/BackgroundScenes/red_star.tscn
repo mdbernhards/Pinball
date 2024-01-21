@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://r84psjpt08vb"]
+[gd_scene load_steps=4 format=3 uid="uid://r84psjpt08vb"]
 
 [ext_resource type="Texture2D" uid="uid://mlg3o5nequr2" path="res://Art/Backgrounds/RedStar.png" id="1_avvo6"]
+[ext_resource type="Texture2D" uid="uid://b60mecf25w2i" path="res://Art/Backgrounds/RedStarActive.png" id="2_s56ll"]
 
-[node name="RedStar" type="Sprite2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygl28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_avvo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s56ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_avvo6")
+}],
+"loop": false,
+"name": &"Combo",
+"speed": 5.0
+}]
+
+[node name="RedStar" type="AnimatedSprite2D"]
 position = Vector2(5, 5)
-texture = ExtResource("1_avvo6")
+sprite_frames = SubResource("SpriteFrames_ygl28")
+animation = &"Combo"

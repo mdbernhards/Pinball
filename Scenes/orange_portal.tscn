@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d65wsesiqbdt"]
+[gd_scene load_steps=6 format=3 uid="uid://d65wsesiqbdt"]
 
 [ext_resource type="Script" path="res://Scenes/orange_portal.gd" id="1_scoyp"]
 [ext_resource type="Texture2D" uid="uid://3yuo71jmv75u" path="res://Art/OrangePortal.png" id="1_wx804"]
+[ext_resource type="AudioStream" uid="uid://dk0lbsvpd7sva" path="res://Art/Sounds/teleport.wav" id="3_r5cnp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j0sqo"]
 animations = [{
@@ -36,5 +37,8 @@ polygon = PackedVector2Array(-68, 255, -43, 275, -7, 276, -45, 235, -44, -244, -
 visible = false
 position = Vector2(-42, 0)
 shape = SubResource("CapsuleShape2D_4ljrx")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." groups=["SoundEffect"]]
+stream = ExtResource("3_r5cnp")
 
 [connection signal="body_entered" from="TeleportArea" to="." method="_on_teleport_area_body_entered"]

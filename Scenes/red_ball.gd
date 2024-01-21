@@ -1,20 +1,25 @@
 extends StaticBody2D
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
-
 func _on_area_2d_body_entered(body):
 	var groups = body.get_groups()
 	if groups and groups[0] == "PlayerBall":
-		$Sprite.play("Hit")
+		var parent = get_parent()
+		var parentGroups = parent.get_groups()
+		if parent and parentGroups and parentGroups[0] == "RedStar" and parent.get_node("Timer").is_stopped():
+			$Sprite.play("ComboHit")
+		else:
+			$Sprite.play("Hit")
 		$HitSound.play()
 		body.linear_velocity = body.linear_velocity * 3
-		$GPUParticles2D.position.x = clamp(position.x, -140, 140)
-		$GPUParticles2D.position.y = clamp(position.y, -140, 140)
-		body.get_node("GPUParticles2D").emitting = true
+		if body.linear_velocity.x > 0:
+			body.linear_velocity.x = body.linear_velocity.x + 100
+		else:
+			body.linear_velocity.x = body.linear_velocity.x - 100
+		if body.linear_velocity.y > 0:
+			body.linear_velocity.y = body.linear_velocity.y + 100
+		else:
+			body.linear_velocity.y = body.linear_velocity.y - 100
+		body.EmitParticles("RedBall")
 		ShakeMath(body.linear_velocity.length())
 		AddToScore()
 
@@ -23,13 +28,13 @@ func AddToScore():
 		ScoreArr[0].AddToCombo("RedBall")
 
 func ShakeMath(velocity):
-	if velocity > 500 and velocity < 750:
+	if velocity > 400 and velocity < 750:
 		get_tree().call_group("Camera", "start_shake", 0.1)
 	elif velocity > 750 and velocity < 1000:
 		get_tree().call_group("Camera", "start_shake", 0.15)
 	elif velocity > 1000 and velocity < 1250:
-		get_tree().call_group("Camera", "start_shake", 0.2)
-	elif velocity > 1250 and velocity < 1500:
-		get_tree().call_group("Camera", "start_shake", 0.25)
-	elif velocity > 1500:
 		get_tree().call_group("Camera", "start_shake", 0.3)
+	elif velocity > 1250 and velocity < 1500:
+		get_tree().call_group("Camera", "start_shake", 0.4)
+	elif velocity > 1500:
+		get_tree().call_group("Camera", "start_shake", 0.6)

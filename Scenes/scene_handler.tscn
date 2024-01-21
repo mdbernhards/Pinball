@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://cubw4wnlkbtt2"]
+[gd_scene load_steps=7 format=3 uid="uid://db4a307hjeq85"]
+
+[ext_resource type="PackedScene" uid="uid://cln3xv27tgtu3" path="res://UiScenes/main_menu.tscn" id="1_43go1"]
+[ext_resource type="Script" path="res://Scenes/scene_handler.gd" id="1_a6sqt"]
+[ext_resource type="PackedScene" uid="uid://ceij65gtb5dtc" path="res://UiScenes/settings.tscn" id="2_rywmu"]
+[ext_resource type="PackedScene" uid="uid://c3ijq5244hmbv" path="res://UiScenes/gizmo_screen.tscn" id="4_ju8jv"]
+[ext_resource type="PackedScene" uid="uid://4hcwh21chahv" path="res://UiScenes/game_over_screen.tscn" id="6_ph6t0"]
+[ext_resource type="PackedScene" uid="uid://dafloq3d0m3c0" path="res://UiScenes/game_intro.tscn" id="7_887qi"]
 
 [node name="SceneHandler" type="Node"]
+process_mode = 3
+script = ExtResource("1_a6sqt")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_43go1")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_rywmu")]
+visible = false
+
+[node name="GizmoScreen" parent="." instance=ExtResource("4_ju8jv")]
+visible = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_ph6t0")]
+visible = false
+
+[node name="GameIntro" parent="." instance=ExtResource("7_887qi")]
+visible = false

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dafloq3d0m3c0"]
+
+[ext_resource type="Script" path="res://UiScenes/game_intro.gd" id="1_3hilu"]
+[ext_resource type="FontFile" uid="uid://cbhh37to6jjdh" path="res://Art/Fonts/Silkscreen/Silkscreen-Bold.ttf" id="2_h66ts"]
+[ext_resource type="AudioStream" uid="uid://y8d2wi5tqy5r" path="res://Art/Sounds/stinger-Boss_Time_-_www.FesliyanStudios.com.mp3" id="3_8fte5"]
+[ext_resource type="AudioStream" uid="uid://cfdwpryo03p2y" path="res://Art/Sounds/stinger-Funny_Bit_-_www.FesliyanStudios.com.mp3" id="4_funbb"]
+
+[node name="GameIntro" type="Control"]
+z_index = 15
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3hilu")
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FadePauseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CountDown" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -177.5
+offset_right = 109.5
+offset_bottom = 143.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_h66ts")
+theme_override_font_sizes/font_size = 250
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDownTimer" type="Timer" parent="CountDown"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Stinger1" type="AudioStreamPlayer2D" parent="." groups=["Music"]]
+stream = ExtResource("3_8fte5")
+
+[node name="Stinger2" type="AudioStreamPlayer2D" parent="." groups=["Music"]]
+position = Vector2(-2, -4)
+stream = ExtResource("4_funbb")
+
+[connection signal="timeout" from="FadePauseTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CountDown/CountDownTimer" to="." method="_on_count_down_timer_timeout"]

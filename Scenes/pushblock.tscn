@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3378jfu3bhef"]
+[gd_scene load_steps=5 format=3 uid="uid://3378jfu3bhef"]
 
 [ext_resource type="Script" path="res://Scenes/pushblock.gd" id="1_buaub"]
 [ext_resource type="Texture2D" uid="uid://67foo1wwelxn" path="res://Art/PushBlockV2.png" id="2_5ub7s"]
+[ext_resource type="AudioStream" uid="uid://d10lp1xun01yi" path="res://Art/Sounds/charging.wav" id="3_68vnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75rh2"]
 size = Vector2(320, 320)
@@ -15,3 +16,6 @@ texture = ExtResource("2_5ub7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_75rh2")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." groups=["SoundEffect"]]
+stream = ExtResource("3_68vnq")

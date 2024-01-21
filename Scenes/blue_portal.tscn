@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xphme0qnijq5"]
+[gd_scene load_steps=6 format=3 uid="uid://xphme0qnijq5"]
 
 [ext_resource type="Script" path="res://Scenes/blue_portal.gd" id="1_dbkt8"]
 [ext_resource type="Texture2D" uid="uid://dhoia4a6sxbta" path="res://Art/BluePortal.png" id="1_lwj2e"]
+[ext_resource type="AudioStream" uid="uid://dk0lbsvpd7sva" path="res://Art/Sounds/teleport.wav" id="3_ntney"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0jl5r"]
 animations = [{
@@ -36,5 +37,8 @@ polygon = PackedVector2Array(60, 258, 38, 279, -9, 276, 30, 245, 32, -240, -4, -
 visible = false
 position = Vector2(32, 0)
 shape = SubResource("CapsuleShape2D_um3ve")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." groups=["SoundEffect"]]
+stream = ExtResource("3_ntney")
 
 [connection signal="body_entered" from="TeleportArea" to="." method="_on_teleport_area_body_entered"]

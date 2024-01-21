@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://brhkrec6uo1lw"]
+[gd_scene load_steps=42 format=3 uid="uid://brhkrec6uo1lw"]
 
 [ext_resource type="Script" path="res://PlayerPads.gd" id="1_phpw6"]
 [ext_resource type="Texture2D" uid="uid://rp5y7tsl84at" path="res://Art/Backgrounds/BackgroundV4.png" id="2_2t6cs"]
@@ -10,14 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://4phl6dac8ekv" path="res://HelperScenes/BackgroundScenes/raindow_cloud.tscn" id="3_lh35v"]
 [ext_resource type="PackedScene" uid="uid://cf8q3qjwi6xvn" path="res://Scenes/rainbow_ball.tscn" id="4_hak1d"]
 [ext_resource type="PackedScene" uid="uid://dh2j8gy1nr35p" path="res://Scenes/player_ball.tscn" id="5_811pk"]
-[ext_resource type="Texture2D" uid="uid://c6kxkdlkx1q3n" path="res://Art/Backgrounds/RainbowShieldV2.png" id="5_ojiq5"]
+[ext_resource type="Texture2D" uid="uid://co8s7b6samffg" path="res://Art/Backgrounds/RainbowShieldV5.png" id="6_fiy03"]
 [ext_resource type="PackedScene" uid="uid://3378jfu3bhef" path="res://Scenes/pushblock.tscn" id="6_utxph"]
+[ext_resource type="Script" path="res://HelperScenes/BackgroundScenes/raindow_cloud.gd" id="7_280jf"]
 [ext_resource type="PackedScene" uid="uid://b53pm2d4uciie" path="res://HelperScenes/CurvyWall.tscn" id="7_hy80u"]
 [ext_resource type="PackedScene" uid="uid://8qjvk1y7umkv" path="res://Scenes/bumper.tscn" id="8_4ynwl"]
+[ext_resource type="AudioStream" uid="uid://cyeppsbyvf2nw" path="res://Art/Sounds/comboSound.wav" id="9_ob20c"]
 [ext_resource type="PackedScene" uid="uid://brfkvcpn8p2cf" path="res://Scenes/red_ball.tscn" id="9_u83in"]
+[ext_resource type="Script" path="res://HelperScenes/BackgroundScenes/red_star.gd" id="10_2ovwq"]
 [ext_resource type="PackedScene" uid="uid://bmpn2wpmvyl15" path="res://Scenes/green_bumper.tscn" id="10_8endj"]
 [ext_resource type="PackedScene" uid="uid://bdxg8t52uk1pk" path="res://HelperScenes/corner_wall.tscn" id="11_bggrj"]
 [ext_resource type="PackedScene" uid="uid://5khra06hh0u2" path="res://Scenes/block.tscn" id="11_jjn11"]
+[ext_resource type="AudioStream" uid="uid://b1q08vjpnuluc" path="res://Art/Sounds/combo2.wav" id="12_6h741"]
 [ext_resource type="PackedScene" uid="uid://c3vbq4woctprg" path="res://Scenes/charge_meter.tscn" id="13_ku0qd"]
 [ext_resource type="PackedScene" uid="uid://cbk3ui6ltvt0p" path="res://Scenes/pink_bar.tscn" id="15_7sbm1"]
 [ext_resource type="PackedScene" uid="uid://eqal5jcvuqs1" path="res://Scenes/blue_bumper.tscn" id="15_n1vff"]
@@ -25,71 +29,106 @@
 [ext_resource type="PackedScene" uid="uid://xphme0qnijq5" path="res://Scenes/blue_portal.tscn" id="18_1gqyk"]
 [ext_resource type="PackedScene" uid="uid://d65wsesiqbdt" path="res://Scenes/orange_portal.tscn" id="19_x56ir"]
 [ext_resource type="Script" path="res://Scenes/Camera2D.gd" id="23_lp75c"]
+[ext_resource type="PackedScene" uid="uid://boo5r2wt8tc1n" path="res://Scenes/tall_block_with_hole.tscn" id="25_8j38o"]
+[ext_resource type="Script" path="res://Scenes/BallDispenser.gd" id="25_ik4y3"]
 [ext_resource type="AudioStream" uid="uid://cifonhtn04fdx" path="res://Art/Sounds/Music/8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3" id="26_jx5de"]
+[ext_resource type="PackedScene" uid="uid://dc788ntxgwpls" path="res://Scenes/reload_triangle.tscn" id="27_770oy"]
 [ext_resource type="AudioStream" uid="uid://djpb780pryogd" path="res://Art/Sounds/Music/Boss_Time_-_www.FesliyanStudios.com.mp3" id="27_q3t5w"]
 [ext_resource type="AudioStream" uid="uid://dy5118wn74jg8" path="res://Art/Sounds/Music/Funny_Bit_-_www.FesliyanStudios.com.mp3" id="28_vma4y"]
-[ext_resource type="AudioStream" uid="uid://y8d2wi5tqy5r" path="res://Art/Sounds/stinger-Boss_Time_-_www.FesliyanStudios.com.mp3" id="29_6vf1p"]
-[ext_resource type="AudioStream" uid="uid://cfdwpryo03p2y" path="res://Art/Sounds/stinger-Funny_Bit_-_www.FesliyanStudios.com.mp3" id="30_1a67a"]
+[ext_resource type="Script" path="res://Scenes/Music.gd" id="32_b0623"]
+[ext_resource type="PackedScene" uid="uid://do6mlg8d0sfpm" path="res://UiScenes/pause.tscn" id="38_m6lbp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cc1wb"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 700, 700)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -194.2
+angle_max = 226.5
+velocity_pivot = Vector3(5, 2, 10)
+direction = Vector3(0, 0, 0)
+spread = 60.0
+initial_velocity_min = 87.42
+initial_velocity_max = 114.94
+angular_velocity_min = -50.9
+angular_velocity_max = 147.64
+orbit_velocity_min = 0.05
+orbit_velocity_max = 0.5
+radial_velocity_min = 10.0
+radial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 50.0
+radial_accel_max = 70.0
+tangential_accel_min = 20.0
+tangential_accel_max = 30.0
+scale_min = 4.0
+scale_max = 8.0
+color = Color(0.882353, 0.466667, 0.701961, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 11.58
+turbulence_noise_scale = 3.788
+turbulence_noise_speed_random = 0.3
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvgro"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(220, 220, 220)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -339.8
+angle_max = 339.8
+velocity_pivot = Vector3(5, 2, 10)
+direction = Vector3(0, 0, 0)
+spread = 60.0
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+angular_velocity_min = 30.0
+angular_velocity_max = 66.74
+orbit_velocity_min = 0.05
+orbit_velocity_max = 0.5
+radial_velocity_min = 10.0
+radial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 50.0
+radial_accel_max = 70.0
+tangential_accel_min = 20.0
+tangential_accel_max = 30.0
+scale_min = 4.0
+scale_max = 8.0
+color = Color(0.764706, 0, 0, 1)
+hue_variation_min = -0.15
+hue_variation_max = 0.15
+turbulence_enabled = true
+turbulence_noise_strength = 11.58
+turbulence_noise_scale = 3.788
+turbulence_noise_speed_random = 0.3
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4368b"]
 radius = 32.0
-height = 1976.0
+height = 2438.0
 
-[node name="Map" type="Node2D"]
-position = Vector2(424, 465)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71ayo"]
+size = Vector2(14, 48)
+
+[node name="Map" type="Node2D" groups=["MainScene"]]
+process_mode = 1
+position = Vector2(422, 461)
 script = ExtResource("1_phpw6")
-
-[node name="HighScoreLogic" type="Node2D" parent="." groups=["ScoreLogic"]]
-script = ExtResource("2_v8033")
-
-[node name="ScoreLabel" type="Label" parent="HighScoreLogic"]
-offset_left = -371.0
-offset_top = 514.0
-offset_right = -125.0
-offset_bottom = 575.0
-theme_override_fonts/font = ExtResource("3_2glko")
-theme_override_font_sizes/font_size = 47
-text = "Score: 0"
-
-[node name="SetScoreTimer" type="Timer" parent="HighScoreLogic/ScoreLabel"]
-wait_time = 3.0
-one_shot = true
-
-[node name="ComboLabel" type="Label" parent="HighScoreLogic"]
-z_index = 3
-offset_left = -370.0
-offset_top = -336.0
-offset_right = -124.0
-offset_bottom = -275.0
-theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
-theme_override_colors/font_shadow_color = Color(0.862745, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("3_2glko")
-theme_override_font_sizes/font_size = 36
-text = "Score: 0"
-horizontal_alignment = 1
-
-[node name="Timer" type="Timer" parent="HighScoreLogic/ComboLabel"]
-wait_time = 4.0
-one_shot = true
-
-[node name="Label" type="Label" parent="HighScoreLogic/ComboLabel/Timer"]
-offset_left = 49.0
-offset_top = 56.0
-offset_right = 89.0
-offset_bottom = 79.0
-theme_override_fonts/font = ExtResource("3_2glko")
-text = "TimeLeft"
-
-[node name="ComboSumLabel" type="Label" parent="HighScoreLogic"]
-offset_left = -167.0
-offset_top = 438.0
-offset_right = 66.0
-offset_bottom = 515.0
-theme_override_fonts/font = ExtResource("3_2glko")
-theme_override_font_sizes/font_size = 60
-text = "sugma"
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -97,10 +136,10 @@ text = "sugma"
 show_behind_parent = true
 z_index = -20
 z_as_relative = false
-offset_left = -424.0
-offset_top = -465.0
-offset_right = 1496.0
-offset_bottom = 615.0
+offset_left = -422.0
+offset_top = -461.0
+offset_right = 1498.0
+offset_bottom = 619.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_2t6cs")
@@ -109,45 +148,71 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RainbowBalls" type="Node2D" parent="Environment"]
 
-[node name="RaindowShield" parent="Environment/RainbowBalls" instance=ExtResource("3_lh35v")]
+[node name="RaindowShield" parent="Environment/RainbowBalls" groups=["RainbowShield"] instance=ExtResource("3_lh35v")]
 z_index = -5
 position = Vector2(540, 167)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("5_ojiq5")
+texture = ExtResource("6_fiy03")
+script = ExtResource("7_280jf")
 
-[node name="RainbowBall1" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall1" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(268, -280)
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall2" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall2" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(384, 22)
 rotation = 0.820305
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall3" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall3" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(234, 312)
 rotation = 1.65806
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall4" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall4" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(-114, 362)
 rotation = 2.70526
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall5" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall5" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(-364, 134)
 rotation = -2.79253
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall6" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall6" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(-326, -210)
 rotation = -1.5708
 scale = Vector2(0.23, 0.23)
 
-[node name="RainbowBall7" parent="Environment/RainbowBalls/RaindowShield" instance=ExtResource("4_hak1d")]
+[node name="RainbowBall7" parent="Environment/RainbowBalls/RaindowShield" groups=["RainbowComboBall"] instance=ExtResource("4_hak1d")]
 position = Vector2(-34, -388)
 rotation = -0.820305
 scale = Vector2(0.23, 0.23)
+
+[node name="Timer" type="Timer" parent="Environment/RainbowBalls/RaindowShield"]
+wait_time = 7.0
+one_shot = true
+
+[node name="RainbowBallGpuParticles" type="GPUParticles2D" parent="Environment/RainbowBalls/RaindowShield"]
+emitting = false
+amount = 700
+amount_ratio = 0.4369
+process_material = SubResource("ParticleProcessMaterial_cc1wb")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.5
+explosiveness = 0.2
+randomness = 0.48
+fixed_fps = 60
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+draw_order = 2
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Environment/RainbowBalls/RaindowShield" groups=["SoundEffect"]]
+stream = ExtResource("9_ob20c")
+
+[node name="SlowmotionTimer" type="Timer" parent="Environment/RainbowBalls/RaindowShield"]
+wait_time = 0.25
+one_shot = true
 
 [node name="RainbowBall" parent="Environment/RainbowBalls" instance=ExtResource("4_hak1d")]
 position = Vector2(955, -5)
@@ -169,27 +234,6 @@ scale = Vector2(0.22, 0.22)
 position = Vector2(610, -344)
 scale = Vector2(0.1, 0.1)
 
-[node name="RedStar" parent="Environment/RainbowBalls" instance=ExtResource("3_dptvn")]
-z_index = -5
-position = Vector2(206, -134)
-scale = Vector2(0.95, 0.95)
-
-[node name="RedBall3" parent="Environment/RainbowBalls/RedStar" instance=ExtResource("9_u83in")]
-position = Vector2(-110, -7)
-scale = Vector2(0.2, 0.2)
-
-[node name="RedBall" parent="Environment/RainbowBalls/RedStar" instance=ExtResource("9_u83in")]
-position = Vector2(-5, -107)
-scale = Vector2(0.25, 0.25)
-
-[node name="RedBall4" parent="Environment/RainbowBalls/RedStar" instance=ExtResource("9_u83in")]
-position = Vector2(100, -7)
-scale = Vector2(0.2, 0.2)
-
-[node name="RedBall2" parent="Environment/RainbowBalls/RedStar" instance=ExtResource("9_u83in")]
-position = Vector2(-5, 93)
-scale = Vector2(0.25, 0.25)
-
 [node name="RedBalls" type="Node2D" parent="Environment"]
 
 [node name="RedBall5" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
@@ -199,6 +243,47 @@ scale = Vector2(0.2, 0.2)
 [node name="RedBall6" parent="Environment/RedBalls" instance=ExtResource("9_u83in")]
 position = Vector2(401, -360)
 scale = Vector2(0.2, 0.2)
+
+[node name="RedStar" parent="Environment/RedBalls" groups=["RedStar"] instance=ExtResource("3_dptvn")]
+z_index = -5
+position = Vector2(206, -134)
+scale = Vector2(0.95, 0.95)
+script = ExtResource("10_2ovwq")
+
+[node name="RedBall3" parent="Environment/RedBalls/RedStar" groups=["ComboBall"] instance=ExtResource("9_u83in")]
+position = Vector2(-110, -7)
+scale = Vector2(0.2, 0.2)
+
+[node name="RedBall" parent="Environment/RedBalls/RedStar" groups=["ComboBall"] instance=ExtResource("9_u83in")]
+position = Vector2(-5, -107)
+scale = Vector2(0.25, 0.25)
+
+[node name="RedBall4" parent="Environment/RedBalls/RedStar" groups=["ComboBall"] instance=ExtResource("9_u83in")]
+position = Vector2(100, -7)
+scale = Vector2(0.2, 0.2)
+
+[node name="RedBall2" parent="Environment/RedBalls/RedStar" groups=["ComboBall"] instance=ExtResource("9_u83in")]
+position = Vector2(-5, 93)
+scale = Vector2(0.25, 0.25)
+
+[node name="Timer" type="Timer" parent="Environment/RedBalls/RedStar"]
+wait_time = 7.0
+one_shot = true
+
+[node name="RedBallGpuParticles" type="GPUParticles2D" parent="Environment/RedBalls/RedStar"]
+emitting = false
+amount = 300
+amount_ratio = 0.5
+process_material = SubResource("ParticleProcessMaterial_jvgro")
+lifetime = 0.3
+one_shot = true
+preprocess = 0.2
+fixed_fps = 60
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+draw_order = 2
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Environment/RedBalls/RedStar" groups=["SoundEffect"]]
+stream = ExtResource("12_6h741")
 
 [node name="LeftWall" type="Node2D" parent="Environment"]
 
@@ -331,12 +416,6 @@ z_index = -1
 position = Vector2(-1156, 278)
 scale = Vector2(0.17, 0.17)
 
-[node name="Tallblock8" parent="Environment/RightWall" instance=ExtResource("3_f8w25")]
-z_index = -3
-position = Vector2(-1242, 67)
-rotation = 3.14159
-scale = Vector2(0.17, -0.39)
-
 [node name="Pushblock" parent="Environment" instance=ExtResource("6_utxph")]
 position = Vector2(1199, 330)
 scale = Vector2(0.08, 0.08)
@@ -412,42 +491,81 @@ scale = Vector2(0.2, 0.3)
 [node name="DeathZone" type="Area2D" parent="Environment"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/DeathZone"]
-position = Vector2(548, 754)
+position = Vector2(546, 1038)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4368b")
 
+[node name="BallDispenser" type="Node2D" parent="Environment" groups=["BallDispenser"]]
+script = ExtResource("25_ik4y3")
+
+[node name="TallBlockWithHole" parent="Environment/BallDispenser" instance=ExtResource("25_8j38o")]
+position = Vector2(1242, 278)
+scale = Vector2(0.17, 0.17)
+
+[node name="Tallblock4" parent="Environment/BallDispenser" instance=ExtResource("3_f8w25")]
+z_index = -1
+position = Vector2(1242, -48)
+scale = Vector2(0.17, 0.17)
+
+[node name="Block6" parent="Environment/BallDispenser" instance=ExtResource("11_jjn11")]
+z_index = -9
+position = Vector2(1242, -235)
+scale = Vector2(0.17, 0.17)
+
+[node name="ReloadTriangle" parent="Environment/BallDispenser" instance=ExtResource("27_770oy")]
+z_index = -1
+position = Vector2(1224, 281)
+rotation = -1.79769
+scale = Vector2(0.1, 0.1)
+
+[node name="Area2D" type="Area2D" parent="Environment/BallDispenser"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/BallDispenser/Area2D"]
+visible = false
+position = Vector2(1201, 264)
+shape = SubResource("RectangleShape2D_71ayo")
+
 [node name="PlayerPad1" parent="." instance=ExtResource("2_bfe1v")]
 position = Vector2(340, 540)
-scale = Vector2(0.4, 0.35)
+scale = Vector2(0.359, 0.314)
 
 [node name="PlayerPad2" parent="." instance=ExtResource("2_bfe1v")]
 position = Vector2(730, 540)
-scale = Vector2(-0.4, 0.35)
-
-[node name="PlayerBall" parent="." instance=ExtResource("5_811pk")]
-position = Vector2(1199, 5.00002)
+scale = Vector2(-0.359, 0.314)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1625, 482)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(26, -34)
+position = Vector2(203, -148)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(1020, -33)
+position = Vector2(1039, 121)
 
 [node name="SpeedLabel" type="Label" parent="."]
-offset_left = 1258.0
-offset_top = -417.0
-offset_right = 1363.0
-offset_bottom = -375.0
+offset_left = 1236.0
+offset_top = -422.0
+offset_right = 1369.0
+offset_bottom = -380.0
 theme_override_fonts/font = ExtResource("3_2glko")
 theme_override_font_sizes/font_size = 30
 text = "Speed: "
 metadata/_edit_use_anchors_ = true
 
+[node name="ControllsLabel" type="Label" parent="."]
+offset_left = 953.0
+offset_top = 467.0
+offset_right = 1198.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("3_2glko")
+theme_override_font_sizes/font_size = 21
+text = "SPACE - Charge
+Z - left flipper
+x - right flipper"
+metadata/_edit_use_anchors_ = true
+
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(536, 75)
+position = Vector2(538, 79)
 ignore_rotation = false
 script = ExtResource("23_lp75c")
 
@@ -455,24 +573,134 @@ script = ExtResource("23_lp75c")
 wait_time = 5.0
 
 [node name="Music" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("32_b0623")
 
-[node name="Music1" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Music3" type="AudioStreamPlayer2D" parent="Music" groups=["Music"]]
+position = Vector2(960, 353)
 stream = ExtResource("26_jx5de")
 
-[node name="Music2" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Music1" type="AudioStreamPlayer2D" parent="Music" groups=["Music"]]
+position = Vector2(-2, -4)
 stream = ExtResource("27_q3t5w")
 
-[node name="Music3" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Music2" type="AudioStreamPlayer2D" parent="Music" groups=["Music"]]
+position = Vector2(-2, -4)
 stream = ExtResource("28_vma4y")
 
-[node name="Intro" type="Node" parent="."]
+[node name="Timer" type="Timer" parent="Music"]
+wait_time = 5.0
+one_shot = true
 
-[node name="Stinger1" type="AudioStreamPlayer2D" parent="Intro"]
-stream = ExtResource("29_6vf1p")
+[node name="PlayerBalls" type="Node2D" parent="."]
 
-[node name="Stinger2" type="AudioStreamPlayer2D" parent="Intro"]
-stream = ExtResource("30_1a67a")
+[node name="PlayerBall1" parent="PlayerBalls" instance=ExtResource("5_811pk")]
+position = Vector2(1229, 258)
 
+[node name="PlayerBall2" parent="PlayerBalls" instance=ExtResource("5_811pk")]
+position = Vector2(1244, 232)
+
+[node name="PlayerBall3" parent="PlayerBalls" instance=ExtResource("5_811pk")]
+position = Vector2(1244, 202)
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="Pause" parent="." instance=ExtResource("38_m6lbp")]
+visible = false
+z_index = 22
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 538.0
+offset_top = 79.0
+offset_right = 538.0
+offset_bottom = 79.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect2" type="ColorRect" parent="Pause"]
+z_index = 17
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.803922)
+
+[node name="HighScoreLogic" type="Node2D" parent="." groups=["ScoreLogic"]]
+script = ExtResource("2_v8033")
+
+[node name="ScoreLabel" type="Label" parent="HighScoreLogic"]
+offset_left = -371.0
+offset_top = 514.0
+offset_right = -125.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2glko")
+theme_override_font_sizes/font_size = 47
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="SetScoreTimer" type="Timer" parent="HighScoreLogic/ScoreLabel"]
+wait_time = 2.2
+one_shot = true
+
+[node name="ComboLabel" type="Label" parent="HighScoreLogic"]
+offset_left = -370.0
+offset_top = -336.0
+offset_right = -124.0
+offset_bottom = -275.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0.862745, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_2glko")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="HighScoreLogic/ComboLabel"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Label" type="Label" parent="HighScoreLogic/ComboLabel/Timer"]
+z_index = -1
+offset_left = 47.0
+offset_top = 52.0
+offset_right = 127.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("3_2glko")
+text = "TimeLeft"
+metadata/_edit_use_anchors_ = true
+
+[node name="ComboSumLabel" type="Label" parent="HighScoreLogic"]
+offset_left = -167.0
+offset_top = 438.0
+offset_right = 160.0
+offset_bottom = 515.0
+theme_override_fonts/font = ExtResource("3_2glko")
+theme_override_font_sizes/font_size = 60
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="Environment/RainbowBalls/RaindowShield/SlowmotionTimer" to="Environment/RainbowBalls/RaindowShield" method="_on_slowmotion_timer_timeout"]
+[connection signal="body_entered" from="Environment/DeathZone" to="Environment/BallDispenser" method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="Environment/BallDispenser/Area2D" to="Environment/BallDispenser" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
+[connection signal="finished" from="Music/Music3" to="Music" method="_on_music_3_finished"]
+[connection signal="finished" from="Music/Music1" to="Music" method="_on_music_1_finished"]
+[connection signal="finished" from="Music/Music2" to="Music" method="_on_music_2_finished"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="HighScoreLogic/ScoreLabel/SetScoreTimer" to="HighScoreLogic" method="_on_set_score_timer_timeout"]
 [connection signal="timeout" from="HighScoreLogic/ComboLabel/Timer" to="HighScoreLogic" method="_on_timer_timeout"]
-[connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]

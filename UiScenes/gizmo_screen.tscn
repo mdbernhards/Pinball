@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3ijq5244hmbv"]
+
+[ext_resource type="Texture2D" uid="uid://c54jiyg28sikf" path="res://Art/Background.png" id="1_aj1c3"]
+[ext_resource type="Script" path="res://UiScenes/gizmo_screen.gd" id="1_hk3g5"]
+[ext_resource type="Texture2D" uid="uid://3y4482xkj3q4" path="res://Art/UI/gizmoVibes.jpeg" id="2_sjqqi"]
+[ext_resource type="FontFile" uid="uid://cbhh37to6jjdh" path="res://Art/Fonts/Silkscreen/Silkscreen-Bold.ttf" id="3_1fuk1"]
+[ext_resource type="Texture2D" uid="uid://bqugv11mytxi7" path="res://Art/UI/Button.png" id="4_jyp0e"]
+[ext_resource type="Texture2D" uid="uid://c638qxi6elky0" path="res://Art/UI/ButtonPressed.png" id="5_2e7xq"]
+[ext_resource type="FontFile" uid="uid://5dp2m40qp7cv" path="res://Art/Fonts/Silkscreen/Silkscreen-Regular.ttf" id="6_jmbqt"]
+[ext_resource type="Texture2D" uid="uid://cpdtuhtcigmfv" path="res://Art/UI/CheckBoxNotPressed.png" id="8_n7x3y"]
+[ext_resource type="Texture2D" uid="uid://76kh3um6rwue" path="res://Art/UI/CheckBoxPressed.png" id="9_0jr00"]
+[ext_resource type="Texture2D" uid="uid://bjk22rb0opkvo" path="res://Art/UI/CheckBoxMouseOver.png" id="10_6eqil"]
+
+[node name="GizmoScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hk3g5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_aj1c3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(979, 598)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("2_sjqqi")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 27.0
+offset_right = 202.0
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_1fuk1")
+theme_override_font_sizes/font_size = 100
+text = "Gizmo"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -890.0
+offset_top = -480.0
+offset_right = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.2)
+texture_normal = ExtResource("4_jyp0e")
+texture_hover = ExtResource("5_2e7xq")
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -113.5
+offset_right = 196.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.2)
+theme_override_fonts/font = ExtResource("6_jmbqt")
+theme_override_font_sizes/font_size = 130
+text = "back"
+
+[node name="CrazyModeCheckBox" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 69.0
+offset_top = 897.0
+offset_right = 549.0
+offset_bottom = 1377.0
+scale = Vector2(0.24, 0.24)
+toggle_mode = true
+texture_normal = ExtResource("8_n7x3y")
+texture_pressed = ExtResource("9_0jr00")
+texture_hover = ExtResource("10_6eqil")
+
+[node name="Label" type="Label" parent="CrazyModeCheckBox"]
+layout_mode = 0
+offset_left = 654.167
+offset_top = 141.667
+offset_right = 1933.17
+offset_bottom = 334.667
+theme_override_fonts/font = ExtResource("6_jmbqt")
+theme_override_font_sizes/font_size = 150
+text = "Crazy Mode"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="CrazyModeCheckBox" to="." method="_on_crazy_mode_check_box_toggled"]

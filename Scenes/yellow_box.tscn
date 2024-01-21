@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkif1h4sa42kd"]
+[gd_scene load_steps=6 format=3 uid="uid://dkif1h4sa42kd"]
 
 [ext_resource type="Texture2D" uid="uid://bdimg7wr71p5k" path="res://Art/YellowBox.png" id="1_4e2t5"]
 [ext_resource type="Script" path="res://Scenes/yellow_box.gd" id="1_mprsq"]
+[ext_resource type="AudioStream" uid="uid://btk6d43lqe5u1" path="res://Art/Sounds/yellowBox.wav" id="3_q3bg7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27h4w"]
 size = Vector2(640, 640)
@@ -22,7 +23,11 @@ shape = SubResource("RectangleShape2D_27h4w")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_mp6bb")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." groups=["SoundEffect"]]
+stream = ExtResource("3_q3bg7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

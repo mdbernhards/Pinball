@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://boo5r2wt8tc1n"]
+
+[ext_resource type="Texture2D" uid="uid://s2bals10xjs7" path="res://Art/TallBlockWithHoleV6.png" id="1_yb6vy"]
+
+[node name="TallBlockWithHole" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yb6vy")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-160, -960, 160, -960, 160, 960, -160, 960, -160, 32, -112, 20, -77, 11, -26, -10, 22, -41, 66, -82, 86, -110, 100, -144, 100, -499, 78, -519, 46, -532, -24, -532, -56, -518, -80, -499, -80, -279, -103, -241, -126, -219, -159, -206)

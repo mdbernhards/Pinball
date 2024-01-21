@@ -1,7 +1,10 @@
 extends Node2D
 
-var Score = 0
 var OriginalWaitTime
+var OriginialComboLabelPositionY
+var OriginalComboSumLabelPosition
+
+var Score = 0
 
 var Points = {
 	"RedBall": { "Points": 30, "Count": 0, },
@@ -14,18 +17,16 @@ var Points = {
 	"RainbowBallCombo": { "Points": 3, "Count": 0, },
 }
 
-var OriginialComboLabelPositionY
-var OriginalComboSumLabelPosition
-
 var OriginalPoints = Points.duplicate(true)
 
 func _ready():
 	OriginalWaitTime = $ComboLabel/Timer.wait_time
 	OriginialComboLabelPositionY = $ComboLabel.position.y
 	OriginalComboSumLabelPosition = $ComboSumLabel.position
-	
+
 func _process(delta):
-	$ComboLabel/Timer/Label.text = "ComboTime: " + str($ComboLabel/Timer.wait_time) + " TimeLeft: " + str($ComboLabel/Timer.time_left)
+	
+	$ComboLabel/Timer/Label.text = "ComboTime: " + str(snapped($ComboLabel/Timer.wait_time,0.1)) + " TimeLeft: " + str(snapped($ComboLabel/Timer.time_left, 0.1))
 	ComboLabelBrakingAnimation(delta)
 	ComboSumLabelBrakingAnimation(delta)
 
@@ -34,13 +35,13 @@ func ComboLabelBrakingAnimation(delta):
 	$ComboLabel.scale.y = $ComboLabel.scale.y * 0.9995
 	$ComboLabel.scale.x = $ComboLabel.scale.x * 0.9997
 	$ComboLabel.modulate.a -= 0.2 * delta
-	
+
 func ComboSumLabelBrakingAnimation(delta):
 	$ComboSumLabel.set_position(Vector2($ComboSumLabel.position.x -0.1, $ComboSumLabel.position.y + 0.1))
 	$ComboSumLabel.scale.y = $ComboSumLabel.scale.y * 0.999
 	$ComboSumLabel.scale.x = $ComboSumLabel.scale.x * 0.9993
 	$ComboSumLabel.modulate.a -= 0.3 * delta
-	
+
 func CalculateScore(score):
 	Score += score
 
@@ -60,7 +61,7 @@ func CalculateComboScore():
 		score = score * countMultiplier
 	
 	return score
-	
+
 func AddToCombo(type):
 	if $ComboLabel/Timer.is_stopped():
 		$ComboLabel/Timer.start(OriginalWaitTime)
@@ -76,7 +77,7 @@ func ResetComboText():
 	$ComboLabel.scale.x = 1
 	$ComboLabel.modulate.a = 1
 	$ComboLabel.set_position(Vector2($ComboLabel.position.x, OriginialComboLabelPositionY))
-	
+
 func SetComboLabel():
 	var countMultiplier = 0
 	var comboText
@@ -92,21 +93,21 @@ func SetComboLabel():
 				comboText = comboText + "+ \n" + str(Points[object]["Points"]) + "x" + str(Points[object]["Count"]) + "\n"
 			else:
 				comboText = str(Points[object]["Points"]) + "x" + str(Points[object]["Count"]) + "\n"
-			
+		
 	if countMultiplier:
 		if comboText:
 			comboText = comboText + "X \n" + str(countMultiplier) + "\n"
-			
+		
 	if comboText:
 		$ComboLabel.text = comboText
 
 func SetScoreLabel(score):
 	$ScoreLabel.text = ("Score: " + str(score))
-	
+
 func SetComboSumLabel(comboScore):
-	$ComboSumLabel.text = str(comboScore)
+	$ComboSumLabel.text = ("+ " + str(comboScore))
 	ResetComboSumLabel()
-	
+
 func ResetComboSumLabel():
 	$ComboSumLabel.scale.y = 1
 	$ComboSumLabel.scale.x = 1
@@ -121,7 +122,6 @@ func _on_timer_timeout():
 	$ScoreLabel/SetScoreTimer.start()
 	
 	Points = OriginalPoints.duplicate(true)
-
 
 func _on_set_score_timer_timeout():
 	SetScoreLabel(Score)

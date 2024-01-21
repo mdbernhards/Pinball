@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dh2j8gy1nr35p"]
+[gd_scene load_steps=17 format=3 uid="uid://dh2j8gy1nr35p"]
 
 [ext_resource type="Script" path="res://Scenes/player_ball.gd" id="1_2k6cs"]
 [ext_resource type="Texture2D" uid="uid://do5bepc6a6tni" path="res://Art/PlayerBall.png" id="1_xgowt"]
@@ -18,15 +18,7 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_bcs2l"]
 colors = PackedColorArray(0.237539, 0.237539, 0.237539, 1, 0.41598, 0.41598, 0.41598, 1)
 
-[sub_resource type="Curve" id="Curve_n5bfd"]
-min_value = -1.0
-_data = [Vector2(0.0333333, -0.230769), 0.0, 0.0, 0, 0, Vector2(0.606667, 0.450549), 0.0, 0.0, 0, 0, Vector2(1, 0.252747), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_xv1kj"]
-curve = SubResource("Curve_n5bfd")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2us0"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhevd"]
 lifetime_randomness = 0.77
 particle_flag_rotate_y = true
 particle_flag_disable_z = true
@@ -53,9 +45,9 @@ tangential_accel_max = 41.74
 damping_max = 20.094
 scale_min = 5.0
 scale_max = 7.0
-hue_variation_min = -1.0
-hue_variation_max = -0.56
-hue_variation_curve = SubResource("CurveTexture_xv1kj")
+color = Color(0.176471, 0.764706, 1, 1)
+hue_variation_min = -0.01
+hue_variation_max = 0.06
 turbulence_enabled = true
 turbulence_noise_strength = 9.69
 turbulence_noise_scale = 0.946
@@ -64,12 +56,205 @@ turbulence_influence_max = 0.163
 turbulence_initial_displacement_min = -10.5
 turbulence_initial_displacement_max = 67.4
 
-[sub_resource type="Gradient" id="Gradient_cgklq"]
+[sub_resource type="Gradient" id="Gradient_jk0oy"]
 colors = PackedColorArray(0.835294, 0, 0, 1, 1, 0.337255, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b15s2"]
-gradient = SubResource("Gradient_cgklq")
+gradient = SubResource("Gradient_jk0oy")
 width = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sfnv1"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -275.1
+angle_max = 113.3
+velocity_pivot = Vector3(3, 1, 1)
+direction = Vector3(1111, 0, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 79.71
+angular_velocity_max = 210.33
+orbit_velocity_max = 0.562
+radial_velocity_min = -59.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 6.25
+linear_accel_max = 43.99
+radial_accel_min = 20.22
+radial_accel_max = 67.41
+tangential_accel_min = 24.72
+tangential_accel_max = 41.74
+damping_max = 20.094
+scale_min = 5.0
+scale_max = 7.0
+color = Color(0.176471, 0.764706, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 0.96
+turbulence_enabled = true
+turbulence_noise_strength = 9.69
+turbulence_noise_scale = 0.946
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b2gew"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwj5h"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -275.1
+angle_max = 113.3
+velocity_pivot = Vector3(3, 1, 1)
+direction = Vector3(1111, 0, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 79.71
+angular_velocity_max = 210.33
+orbit_velocity_max = 0.562
+radial_velocity_min = -59.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 6.25
+linear_accel_max = 43.99
+radial_accel_min = 20.22
+radial_accel_max = 67.41
+tangential_accel_min = 24.72
+tangential_accel_max = 41.74
+damping_max = 20.094
+scale_min = 5.0
+scale_max = 7.0
+color = Color(1, 1, 0, 1)
+hue_variation_min = -0.15
+hue_variation_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 9.69
+turbulence_noise_scale = 0.946
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f414o"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -275.1
+angle_max = 113.3
+velocity_pivot = Vector3(3, 1, 1)
+direction = Vector3(1111, 0, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 79.71
+angular_velocity_max = 210.33
+orbit_velocity_max = 0.562
+radial_velocity_min = -59.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 6.25
+linear_accel_max = 43.99
+radial_accel_min = 20.22
+radial_accel_max = 67.41
+tangential_accel_min = 24.72
+tangential_accel_max = 41.74
+damping_max = 20.094
+scale_min = 5.0
+scale_max = 7.0
+color = Color(0.176471, 0.764706, 1, 1)
+hue_variation_min = -0.01
+hue_variation_max = 0.06
+turbulence_enabled = true
+turbulence_noise_strength = 9.69
+turbulence_noise_scale = 0.946
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_umnuj"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -275.1
+angle_max = 113.3
+velocity_pivot = Vector3(3, 1, 1)
+direction = Vector3(1111, 0, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 79.71
+angular_velocity_max = 210.33
+orbit_velocity_max = 0.562
+radial_velocity_min = -59.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 6.25
+linear_accel_max = 43.99
+radial_accel_min = 20.22
+radial_accel_max = 67.41
+tangential_accel_min = 24.72
+tangential_accel_max = 41.74
+damping_max = 20.094
+scale_min = 5.0
+scale_max = 7.0
+color = Color(1, 0.701961, 0, 1)
+hue_variation_min = -0.05
+hue_variation_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 9.69
+turbulence_noise_scale = 0.946
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s2a1o"]
+lifetime_randomness = 0.77
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -275.1
+angle_max = 113.3
+velocity_pivot = Vector3(3, 1, 1)
+direction = Vector3(1111, 0, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 79.71
+angular_velocity_max = 210.33
+orbit_velocity_max = 0.562
+radial_velocity_min = -59.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 6.25
+linear_accel_max = 43.99
+radial_accel_min = 20.22
+radial_accel_max = 67.41
+tangential_accel_min = 24.72
+tangential_accel_max = 41.74
+damping_max = 20.094
+scale_min = 5.0
+scale_max = 7.0
+color = Color(0, 0.847059, 0.27451, 1)
+hue_variation_min = -0.3
+hue_variation_max = 0.35
+turbulence_enabled = true
+turbulence_noise_strength = 9.69
+turbulence_noise_scale = 0.946
+turbulence_influence_min = 0.089
+turbulence_influence_max = 0.163
+turbulence_initial_displacement_min = -10.5
+turbulence_initial_displacement_max = 67.4
 
 [node name="PlayerBall" type="RigidBody2D" groups=["PlayerBall"]]
 mass = 20.0
@@ -100,13 +285,13 @@ end_cap_mode = 2
 antialiased = true
 script = ExtResource("3_xmeae")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="RedBallGpuParticles" type="GPUParticles2D" parent="."]
 z_index = -2
 scale = Vector2(0.6, 0.6)
 emitting = false
 amount = 170
 amount_ratio = 0.7
-process_material = SubResource("ParticleProcessMaterial_k2us0")
+process_material = SubResource("ParticleProcessMaterial_dhevd")
 texture = SubResource("GradientTexture1D_b15s2")
 lifetime = 0.3
 one_shot = true
@@ -115,5 +300,81 @@ randomness = 0.54
 visibility_rect = Rect2(-35, -35, 70, 70)
 draw_order = 2
 
+[node name="RainbowBallGpuParticles" type="GPUParticles2D" parent="."]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 170
+amount_ratio = 0.7
+process_material = SubResource("ParticleProcessMaterial_sfnv1")
+texture = SubResource("CanvasTexture_b2gew")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.24
+randomness = 0.54
+visibility_rect = Rect2(-35, -35, 70, 70)
+draw_order = 2
+
+[node name="YellowBoxGpuParticles" type="GPUParticles2D" parent="."]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 170
+amount_ratio = 0.7
+process_material = SubResource("ParticleProcessMaterial_xwj5h")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.24
+randomness = 0.54
+visibility_rect = Rect2(-35, -35, 70, 70)
+draw_order = 2
+
+[node name="BluePortalGpuParticles" type="GPUParticles2D" parent="."]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 170
+amount_ratio = 0.7
+process_material = SubResource("ParticleProcessMaterial_f414o")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.24
+randomness = 0.54
+visibility_rect = Rect2(-35, -35, 70, 70)
+draw_order = 2
+
+[node name="OrangePortalGpuParticles" type="GPUParticles2D" parent="."]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 170
+amount_ratio = 0.7
+process_material = SubResource("ParticleProcessMaterial_umnuj")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.24
+randomness = 0.54
+visibility_rect = Rect2(-35, -35, 70, 70)
+draw_order = 2
+
+[node name="GreenBumperGpuParticles" type="GPUParticles2D" parent="."]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 170
+amount_ratio = 0.7
+process_material = SubResource("ParticleProcessMaterial_s2a1o")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.24
+randomness = 0.54
+visibility_rect = Rect2(-35, -35, 70, 70)
+draw_order = 2
+
+[node name="TemporaryLifeTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="TemporaryLifeTimer" to="." method="_on_temporary_life_timer_timeout"]
