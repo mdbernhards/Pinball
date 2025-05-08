@@ -1,7 +1,13 @@
-Created in Godot
+# Pixel Pinball
+A simple pinball game
 
-Playable at: https://catgizmo.itch.io/pixel-pinball
+## (Play at Itch.io)[https://catgizmo.itch.io/pixel-pinball]
 
-issues with particles
+## Details
+- Engine: Godot
+- Author: Mārtiņš Dāvis Bernhards
 
-Crazy mode available if you find the secret
+## Known Issues
+- Lag when hitting the first object that emits particles
+
+PS. Crazy mode available if you find the secret (in settings)
